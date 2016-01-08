@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AIM - Home</title>
+	<meta charset="UTF-8" />
+	<meta name="Author" content="Annalise Irene Mariottini">
+	<meta name="keywords" content="Annalise Mariottini, art, artist, columbia, new york" lang="en-us">
+	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
+	<script src="js/scroll.js"></script>
+	<script src="js/overlay.js"></script>
+	<script src="js/even.js"></script>
+	<script type="text/javascript">
+	function changeImages() {
+		// art starts here
+var thumbSRC = ["images/thumbs/Doris_Lake_20151202.jpg", "images/thumbs/Rock_Soap_Bubbles_20151201.jpg", "images/thumbs/Self_Portrait_2_20151201.jpg", "images/thumbs/Savior_20151102.jpg", "images/thumbs/Vanitas_Inspired_Still_Life_20151002.jpg", "images/thumbs/Monterey_Bay_20151001.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/thumbs/Narrative_Still_Life_20150701.jpg", "images/thumbs/Abstract_Practice_20150602.jpg", "images/thumbs/Self_Portrait_1_20150601.jpg", "images/thumbs/Carissa's_Dog_20141001.jpg", "images/thumbs/Burnt_Toast_20140801.jpg", "images/thumbs/Peach_Fuzz_20140702.jpg", "images/thumbs/Bruised_Apple_20140701.jpg"];
+var imageHREF = ["images/Painting/Doris_Lake_20151202.jpg", "images/Painting/Rock_Soap_Bubbles_20151201.jpg", "images/Painting/Self_Portrait_2_20151201.jpg", "images/Painting/Savior_20151102.jpg", "images/Painting/Vanitas_Inspired_Still_Life_20151002.jpg", "images/Painting/Monterey_Bay_20151001.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/Painting/Narrative_Still_Life_20150701.jpg", "images/Painting/Abstract_Practice_20150602.jpg", "images/Painting/Self_Portrait_1_20150601.jpg", "images/Painting/Carissa's_Dog_20141001.jpg", "images/Painting/Burnt_Toast_20140801.jpg", "images/Painting/Peach_Fuzz_20140702.jpg", "images/Painting/Bruised_Apple_20140701.jpg"];
+var imageALT = ["Doris Lake", "Rock Soap Bubbles", "Self Portrait 2", "Savior", "Vanitas Inspired Still Life", "Monterey Bay", "Safety Cone and Blue Guitar 2", "Safety Cone and Blue Guitar 1", "Narrative Still Life", "Abstract Practice", "Self Portrait 1", "Carissa's Dog", "Burnt Toast", "Peach Fuzz", "Bruised Apple"];
+		// art ends here
+		// all arrays must be same length, should be if java runs correctly
+		var links = document.getElementsByClassName("art_box");
+		var past = [];
+		var last = -1;
+		for(var i = 0; i < links.length-1; i++) {
+			var link = links[i];
+			do {
+				var rand = Math.floor(Math.random() * imageHREF.length);
+			} while(contains(past,rand));
+			link.href = imageHREF[rand];
+			var span = link.children[1];
+			span.innerHTML = imageALT[rand];
+			var img = link.children[0];
+			img.src = thumbSRC[rand];
+			img.alt = imageALT[rand];
+			past.push(rand);
+		}
+
+		function contains(arr, num) {
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] === num) {
+					return true;
+				}
+			}
+			return false;
+		}
+	}
+	</script>
+</head>
+<body onload="extendCenter(); changeImages();">
+	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
+	<nav>
+		<ul class="horiz_list">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="art.html">Art</a></li>
+			<li><a href="code.html">Code</a></li>
+			<li><a href="blog.html">Blog</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="resume.pdf">Resume</a></li>
+		</ul>
+	</nav>
+	<header class="unstuck">
+		<h1>Annalise Irene Mariottini</h1>
+		<img src="images/logo_200.png" alt="AIM Logo" height="200" width="200"/>
+		<p>
+			My personal website.
+		</p>
+	</header>
+	<div id="scrolling">
+		<div id="left" style="text-align:left;">
+			<h2>The Rundown</h2>
+			<h3>Basic Info</h3>
+			<ul class="spread_list">
+				<li><strong>School:</strong> Columbia University (2013–2017)</li>
+				<li><strong>Majors:</strong> Visual Arts & Computer Science</li>
+				<li><strong>Current Location:</strong> New York, New York</li>
+			</ul>
+			<a href="about.html" class="block_link"><em>Read more about me...</em></a>
+			<h3>Social Media</h3>
+			<ul class="spread_list horiz_list">
+				<li><a href="https://www.linkedin.com/in/amariottini"><img src="images/linkedin.png" alt="LinkedIn" height="50" width="55" /></a></li>
+				<li><a href="https://www.github.com/aim2120"><img src="images/github.png" alt="GitHub" height="50" width="50" /></a></li>
+				<li><a href="https://www.facebook.com/annaliseirene"><img src="images/facebook.png" alt="Facebook" height="50" width="50" /></a></li>
+				<li><a href="https://www.reddit.com/user/aim2120"><img src="images/reddit.png" alt="Reddit" height="50" width="36" /></a></li>
+				<li><a href="https://www.instagram.com/anleesemartini"><img src="images/instagram.png" alt="Instagram" height="50" width="50" /></a></li>
+			</ul>
+			<a href="contact.html" class="block_link"><em>More contact info...</em></a>
+		</div>
+		<div id="divide"></div>
+		<div id="right">
+			<h2>Some of My Art</h2>
+			<a class="art_box" href="images/Painting/Doris_Lake_20151202.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Doris_Lake_20151202.jpg" alt="Doris Lake" height="250" width="250" /><span class="hidden">Doris Lake</span></a>
+			<a class="art_box" href="images/Painting/Rock_Soap_Bubbles_20151201.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Rock_Soap_Bubbles_20151201.jpg" alt="Rock Soap Bubbles" height="250" width="250" /><span class="hidden">Rock Soap Bubbles</span></a>
+			<a class="art_box" href="images/Painting/Self_Portrait_2_20151201.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Self_Portrait_2_20151201.jpg" alt="Self Portrait 2" height="250" width="250" /><span class="hidden">Self Portrait 2</span></a>
+			<a class="art_box" href="art.html" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/empty.jpg" alt="See more..." height="250" width="250"/><span class="hidden visible-on-mobile">See more...</span></a>
+		</div>
+		<footer>
+			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
+		</footer>
+	</div>
+</body>
+</html>
