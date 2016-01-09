@@ -53,6 +53,7 @@ public class UpdateRunner {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		in.close();
 	}
 	
 	public static void artUpdate() {
@@ -88,7 +89,7 @@ public class UpdateRunner {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		in.close();
 	}
 	
 	public static void copyrightUpdate() {

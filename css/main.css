@@ -21,8 +21,8 @@ div,p,nav,header,footer,section,aside {
 }
 #logo {
 	position: fixed;
-	top: 2px;
-	right: 2px;
+	top: 7px;
+	right: 7px;
 	height: 36px;
 	width: 36px;
 	z-index: 4000;
@@ -31,32 +31,23 @@ div,p,nav,header,footer,section,aside {
 	height: 100%;
 	width: auto;
 }
-.horiz_list {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-.horiz_list li {
-	display: inline-block;
-}
 nav {
 	position: fixed;
     top: 0px;
     left: 0px;
-    min-height: 40px;
+    min-height: 50px;
 	height: auto;
 	background-color: #EDA;
 	width: 100%;
 	z-index: 2000;
 }
-nav ul {
+nav .horiz_list {
 	float: left;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
-nav li a {
+nav a {
 	display: block;
-	padding: 8px;
 	text-decoration: none;
 	font-family: Futura, "Gill San MT", sans-serif;
 	font-size: 115%;
@@ -107,7 +98,7 @@ header p {
 	min-height: 25em;
 	height: auto;
 	width: 80%;
-	padding: 0.5em;
+	padding: 1em;
 	margin-bottom: 2em;
 	background-color: #FFF;
 	text-align: center;
@@ -116,8 +107,7 @@ header p {
 }
 h2 {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	!font-family: Futura, "Gill San MT", sans-serif;
-	font-size: 170%;
+	font-size: 200%;
 	font-style: italic;
 	text-align: center;
 	padding-bottom: 0.5em;
@@ -127,17 +117,17 @@ h2 {
 }
 h3 {
 	font-size: 120%;
-	margin: 1.5em 0.5em 0.3em 0.5em;
+	margin: 1em;
 
 }
-#left {
+.left {
 	min-height: 20em;
 	width: 40%;
 	float: left;
 	margin: 1em 0;
 	padding: 0 4%;
 }
-#divide {
+.divide {
 	height: 0;
 	width: 2%;
 	display: inline-block;
@@ -147,7 +137,7 @@ h3 {
 	border-style: solid;
 	color: #4F3F1F;
 }
-#right {
+.right {
 	min-height: 20em;
 	width: 40%;
 	float: right;
@@ -162,7 +152,7 @@ h3 {
 }
 .art_box {
 	display: inline-block;
-	margin: 24px 12px 0 12px;
+	margin: 0 12px 24px 12px;
 	position: relative;
 }
 .art_box span {
@@ -188,7 +178,17 @@ h3 {
     filter: alpha(opacity=100);
     z-index: 1;
 }
+.horiz_list {
+	list-style-type: none;
+	padding: 0;
+	margin: 1em;
+}
+.horiz_list li {
+	display: inline-block;
+	padding: 0.5em;
+}
 .spread_list {
+	text-align: left;
 	line-height: 1.5em;
 }
 .spread_list li {
@@ -198,7 +198,9 @@ h3 {
 	display: block;
 	text-align: center;
 	padding: 0.5em;
+	margin: 0;
 	background-color: #96A087;
+	font-style: italic;
 	text-decoration: none;
 }
 .block_link:hover {
@@ -206,7 +208,7 @@ h3 {
 }
 .little_block {
 	display: block;
-	padding: 0.5em;
+	padding: 1em;
 }
 aside {
 	float: right;

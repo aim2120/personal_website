@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>AIM - Template</title>
+	<title>AIM - Code</title>
 	<meta charset="UTF-8" />
 	<meta name="Author" content="Annalise Irene Mariottini">
 	<meta name="keywords" content="Irene Mariottini, art, artist, columbia, new york" lang="en-us">
@@ -10,6 +10,11 @@
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
 	<script src="js/scroll.js"></script>
 	<script src="js/overlay.js"></script>
+	<style>
+		.little_block {
+			margin-bottom: 2em;
+		}
+	</style>
 </head>
 <body>
 	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
@@ -19,22 +24,53 @@
 			<li><a href="art.html">Art</a></li>
 			<li><a href="code.html">Code</a></li>
 			<li><a href="blog.html">Blog</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li><a href="connect.html">Connect</a></li>
 			<li><a href="about.html">About</a></li>
 			<li><a href="resume.pdf">Resume</a></li>
 		</ul>
 	</nav>
 	<header class="unstuck">
-		<h1>Computer Stuff</h1>
+		<h1>On My Laptop</h1>
 		<img src="images/logo_200.png" alt="AIM Logo" height="200" width="200"/>
 		<p>
-			Samples of code and programs.
+			Samples of programs and projects.
 		</p>
 	</header>
 	<div id="scrolling">
 		<div class="center">
-			<h2 style="font-family:'Lucida Console',monospace;font-style:normal;">/** @author AIM */</h2>
-			Under construction - more to come soon!
+			<h2>Coding Portfolio</h2>
+			<h3>Personal Website Version 1</h3>
+			<div class="art_box" onmouseover="see(this)" onmouseout="hide(this)">
+				<img src="images/website_ex.jpg" alt="Screenshot of my homepage and text editor" height="450" width="800" />
+				<span class="hidden">Screenshot of my workspace</span>
+			</div>
+			<ul style="text-align:left;">
+				<li><strong>Client:</strong> Myself</li>
+				<li><strong>Date Completed:</strong> January 2016</li>
+				<li><strong>Languages Used:</strong> HTML, CSS, JavaScript, Java</li>
+			</ul>
+			<p class="little_block" style="text-align:left;">
+				<a href="https://github.com/aim2120/personal_website" class="block_link" style="float:left; margin-right:1em;">
+					<img src="images/github.png" alt="GitHub" height="80" width="80" />
+				</a>
+				I created this website from scratch both to expand my online presence and to practice my web dev skill. My university provides a server that I can SSH into to update a directory created for my university ID. Although I have used HTML, CSS, and JavaScript together before, this is the first time I've created a fully fleshed-out website. In Java I programmed an "UpdateRunner" that I used to modify and generate HTML and JavaScript text quickly.
+			</p>
+			<h3>StarField Game</h3>
+			<a href="starfield/game.html" class="art_box" onmouseover="see(this)" onmouseout="hide(this)">
+				<img src="images/starfield.jpg" alt="Screenshot of gameplay" height="450" width="800" />
+				<span class="hidden">Click to play!</span>
+			</a>
+			<ul style="text-align:left;">
+				<li><strong>Client:</strong> iD Tech Camps</li>
+				<li><strong>Date Completed:</strong> July 2015</li>
+				<li><strong>Languages Used:</strong> PaperScript, HTML</li>
+			</ul>
+			<p class="little_block" style="text-align:left;">
+				<a href="https://github.com/aim2120/starfield_game" class="block_link" style="float:left; margin-right:1em;">
+					<img src="images/github.png" alt="GitHub" height="80" width="80" />
+				</a>
+				I created this game as an example for an Intro to Scratch and JavaScript class I taught at iD Tech Camps' Columbia University program. The coursework was based in <a href="http://paperjs.org/about/">PaperScript</a>, which allows for the easy creation of graphical programs. This game was created to illustrate the basic concepts of movement, collisions, timer, scoring, "start game"/"game over" screens, click-based actions, custom sprites, and changing backgrounds.
+			</p>
 		</div>
 		<footer>
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved

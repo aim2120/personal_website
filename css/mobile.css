@@ -3,8 +3,6 @@ body {
 }
 #logo {
 	position: fixed;
-	top: 5px;
-	right: 5px;
 	height: 70px;
 	width: 70px;
 }
@@ -46,16 +44,19 @@ header p {
 	margin: 0px;
 	padding: 0px;
 }
-#left, #right {
+.left, .right {
 	float: none;
 	width: 90%;
 }
-#divide {
-	display: none;
+.divide {
+	display: block;
+	height: 1em;
+	width: 90%;
+	margin: 2em auto;
+	border-width: 2px 0;
 }
-.visible {
-    z-index: -10;
+.art_box span {
 }
-.visible_on_mobile {
+.hidden {
     z-index: 10;
 }
