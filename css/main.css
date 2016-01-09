@@ -94,11 +94,11 @@ header p {
 #scrolling {
 	position: absolute;
 	top: 47em;
-	left: 10%;
+	left: 7%;
 	min-height: 25em;
 	height: auto;
 	width: 80%;
-	padding: 1em;
+	padding: 1em 3%;
 	margin-bottom: 2em;
 	background-color: #FFF;
 	text-align: center;
@@ -116,7 +116,7 @@ h2 {
 	border-style: solid;
 }
 h3 {
-	font-size: 120%;
+	font-size: 150%;
 	margin: 1em 1em 0 1em;
 
 }
@@ -152,7 +152,7 @@ h3 {
 }
 .art_box {
 	display: inline-block;
-	margin: 0 12px 24px 12px;
+	margin: 0.5em;
 	position: relative;
 }
 .art_box span {
@@ -162,7 +162,7 @@ h3 {
     width: 96%;
     padding: 2%;
 	background-color: #FFF;
-	font-size: 150%;
+	font-size: 115%;
 	font-style: italic;
 	opacity: 0.7;
     filter: alpha(opacity=70);
