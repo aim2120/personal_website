@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  * Basic class to run updates on website
@@ -8,7 +10,7 @@ import java.io.IOException;
  */
 public class UpdateRunner {
 	
-	public static final String[] ART_PAGES = { // all pages that need art updates
+	public static final String[] ART_PAGES = { // all pages that have art updates
 			"./index.html"
 			,"./art.html"
 			};
@@ -17,33 +19,81 @@ public class UpdateRunner {
 
 	public static void main(String[] args) {
 		
-		// Updating art stuff
-		String[] pages = ART_PAGES;
-		if (args.length > 0) { // if args present, use args instead of given ART_PAGES
-			pages = args;
-		}
+		System.out.println("Choose an update # from the list:");
+		System.out.println("0. Find/Replace All update");
+		System.out.println("1. Art images update");
+		System.out.println("2. Copyright update");
 		
-		ArtUpdate a = new ArtUpdate(IMAGE_FOLDER,"art starts here","art ends here");
-		a.compileArtFiles();
+		Scanner in = new Scanner(System.in);
 		
-		for(int i = 0; i < pages.length; i++) {
-			try {
-				a.rebuildPage(pages[i]);
-			} catch (IOException e) {
-				e.printStackTrace();
+		try {
+			int choice = in.nextInt();
+			
+			switch(choice) {
+			case 0: findreplace(); in.close(); break;
+			case 1: artUpdate(); in.close(); break;
+			case 2: copyrightUpdate(); break;
 			}
+		} catch (InputMismatchException e) {
+			System.out.println("That input is not valid.");
 		}
-		
-		// Updating copyright
+	}
+	
+	public static void findreplace() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the String to find:");
+		String find = in.nextLine();
+		System.out.println("Enter the String to replace:");
+		String replace = in.nextLine();
+
 		try{
-			CopyrightUpdate.update(ROOT_FOLDER);
+			if(!ChangeAThing.change(ROOT_FOLDER, find, replace)) {
+				System.out.println("The String to find was not found");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void artUpdate() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Possible pages to update:");
+		for(int i = 0; i < ART_PAGES.length; i++) {
+			System.out.println(i+". "+ART_PAGES[i]);
+		}
+		System.out.println("How many would you like to update?");
+		
+		try {
+			int[] pages = new int[in.nextInt()];
+			
+			if(pages.length >= ART_PAGES.length) {
+				for(int i = 0; i < pages.length; i++) {
+					pages[i] = i;
+				}
+			} else {
+				for(int i = 0; i < pages.length; i++) {
+					System.out.println("Enter a page #");
+					pages[i] = in.nextInt();
+				}
+			}
+			
+			ArtUpdate a = new ArtUpdate(IMAGE_FOLDER);
+			a.compileArtFiles();
+			
+			for(int i = 0; i < pages.length; i++) {
+				a.rebuildPage(ART_PAGES[pages[i]]);
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("That input is not valid.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		//Change a thing!
+	}
+	
+	public static void copyrightUpdate() {
 		try{
-			ChangeAThing.change(".", "", "");
+			CopyrightUpdate.update(ROOT_FOLDER);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

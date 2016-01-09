@@ -18,8 +18,8 @@ import java.util.List;
  * @author Annalise Mariottini
  */
 public class ArtUpdate {
-	private final String HTML_ART_START;
-	private final String HTML_ART_END;
+	private final String HTML_ART_START = "art starts here";
+	private final String HTML_ART_END = "art ends here";
 	private final String HOME_PAGE = "index";
 	private final String ART_PAGE = "art";
 	private final String THUMB_HEIGHT = "400";
@@ -29,9 +29,7 @@ public class ArtUpdate {
 	private List<ArtFileInfo> artList; // List to contain all art objects
 	private List<String> artTypes; // all currently found art types (determined by directory names)
 	
-	public ArtUpdate(String path, String beginningMarker, String endMarker) {
-		HTML_ART_START = beginningMarker;
-		HTML_ART_END = endMarker;
+	public ArtUpdate(String path) {
 		parentArtFolder = new File(path);
 		artList = new ArrayList<>();
 		artTypes = new ArrayList<>();

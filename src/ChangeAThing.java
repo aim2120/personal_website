@@ -25,11 +25,12 @@ public class ChangeAThing {
 	 * @throws IOException
 	 * 		if the given path doesn't exist
 	 */
-	public static void change(String mainFolderPath, String thing, String newThing) throws IOException {
+	public static boolean change(String mainFolderPath, String thing, String newThing) throws IOException {
 		File parentHTMLFolder = new File(mainFolderPath);
 		File[] folderContents = parentHTMLFolder.listFiles();
 		List<File> htmlFiles = new ArrayList<>();
 		List<File> subDirectories = new ArrayList<>();
+		boolean changed = false;
 		
 		for(File item: folderContents) { // finding HTML files
 			String name = item.getName();
@@ -53,6 +54,7 @@ public class ChangeAThing {
 			while((line = pageBR.readLine()) != null)  {
 				if(line.contains(thing)) {
 					line = line.replace(thing, newThing);
+					changed = true;
 				}
 				pageText.append(line+System.lineSeparator());
 			}
@@ -66,5 +68,6 @@ public class ChangeAThing {
 			pageBW.flush();
 			pageBW.close();
 		}
+		return changed;
 	}
 }
