@@ -196,8 +196,8 @@ public class ArtUpdate {
 			String thumbPath = path.replace(currentType, "thumbs");
 			inputText.append("<a class=\"art_box\" href=\"");
 			inputText.append(path);
-			inputText.append("\" onmouseover=\"see(this)\" ");
-			inputText.append("onmouseout=\"hide(this)\" >");
+			inputText.append("\" onmouseover=\"toggleTitle(this)\" ");
+			inputText.append("onmouseout=\"toggleTitle(this)\" >");
 			inputText.append("<img src=\"");
 			inputText.append(thumbPath);
 			inputText.append("\" alt=\"");

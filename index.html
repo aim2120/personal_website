@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
 	<script src="js/scroll.js"></script>
+	<script src="js/mobile_drop.js"></script>
 	<script src="js/overlay.js"></script>
 	<script src="js/even.js"></script>
 	<script type="text/javascript">
@@ -50,14 +51,20 @@
 <body onload="extendCenter(); changeImages();">
 	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
 	<nav>
-		<ul class="horiz_list">
+		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="art.html">Art</a></li>
 			<li><a href="code.html">Code</a></li>
 			<li><a href="blog.html">Blog</a></li>
 			<li><a href="connect.html">Connect</a></li>
 			<li><a href="about.html">About</a></li>
-			<li><a href="resume.pdf">Resume</a></li>
+			<li class="slide" onclick="dropDown(this)">
+				<a>Resume</a>
+				<ul>
+					<li><a href="resume.pdf">General</a></li>
+					<li><a href="resume_art.pdf">Art</a></li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<header class="unstuck">
@@ -90,10 +97,10 @@
 		<div class="divide"></div>
 		<div class="right">
 			<h2>Some Art</h2>
-			<a class="art_box" href="images/Painting/Doris_Lake_20151202.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Doris_Lake_20151202.jpg" alt="Doris Lake" height="250" width="250" /><span class="hidden">Doris Lake</span></a>
-			<a class="art_box" href="images/Painting/Rock_Soap_Bubbles_20151201.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Rock_Soap_Bubbles_20151201.jpg" alt="Rock Soap Bubbles" height="250" width="250" /><span class="hidden">Rock Soap Bubbles</span></a>
-			<a class="art_box" href="images/Painting/Self_Portrait_2_20151201.jpg" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/Self_Portrait_2_20151201.jpg" alt="Self Portrait 2" height="250" width="250" /><span class="hidden">Self Portrait 2</span></a>
-			<a class="art_box" href="art.html" onmouseover="see(this)" onmouseout="hide(this)" ><img src="images/thumbs/empty.jpg" alt="See more..." height="250" width="250"/><span class="hidden visible-on-mobile">See more</span></a>
+			<a class="art_box" href="images/Painting/Doris_Lake_20151202.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Doris_Lake_20151202.jpg" alt="Doris Lake" height="250" width="250" /><span class="hidden">Doris Lake</span></a>
+			<a class="art_box" href="images/Painting/Rock_Soap_Bubbles_20151201.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Rock_Soap_Bubbles_20151201.jpg" alt="Rock Soap Bubbles" height="250" width="250" /><span class="hidden">Rock Soap Bubbles</span></a>
+			<a class="art_box" href="images/Painting/Self_Portrait_2_20151201.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Self_Portrait_2_20151201.jpg" alt="Self Portrait 2" height="250" width="250" /><span class="hidden">Self Portrait 2</span></a>
+			<a class="art_box" href="art.html" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/empty.jpg" alt="See more..." height="250" width="250"/><span class="hidden visible-on-mobile">See more</span></a>
 		</div>
 		<footer>
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved

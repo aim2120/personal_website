@@ -37,26 +37,44 @@ nav {
     left: 0px;
     min-height: 50px;
 	height: auto;
-	background-color: #EDA;
 	width: 100%;
+	background-color: #EDA;
+	font-family: Futura, "Gill San MT", sans-serif;
+	font-size: 115%;
 	z-index: 2000;
 }
-nav .horiz_list {
+nav > ul {
 	float: left;
 	margin: 0;
 	padding: 0;
 }
+nav li {
+	display: inline-block;
+}
 nav a {
 	display: block;
+	padding: 0.5em;
 	text-decoration: none;
-	font-family: Futura, "Gill San MT", sans-serif;
-	font-size: 115%;
 }
 nav a:link {
-	color: #4F3F1F;
+	color: inherit;
 }
 nav a:visited {
-	color: #4F3F1F;
+	color: inherit;
+}
+.slide > a {
+	display: inline-block;
+}
+.slide ul {
+	padding: 0;
+	background-color: #CB8;
+	display: none;
+}
+.slide:hover ul {
+	display: inline-block;
+}
+.slide li a:before {
+	content: "\00BB		";
 }
 header {
 	height: 1277px;
@@ -135,7 +153,7 @@ h3 {
 	padding: 0;
 	border-width: 0 2px;
 	border-style: solid;
-	color: #4F3F1F;
+	border-color: #4F3F1F;
 }
 .right {
 	min-height: 20em;

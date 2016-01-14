@@ -6,19 +6,26 @@ body {
 	height: 70px;
 	width: 70px;
 }
-nav .horiz_list li {
+nav > ul > li {
 	display: block;
-	border: 1px solid #4F3F1F;
+	border-width: 0 2px 2px 2px;
+	border-style: solid;
+	border-color: #4F3F1F;
 }
 nav {
 	position: static;
 	height: auto;
 }
-nav ul {
+nav > ul {
 	float: none;
 	position: static;
 	width: 100%;
 	text-align: center;
+}
+.slide ul {
+	display: none;
+	float: right;
+	width: 50%;
 }
 header {
 	position: static;
