@@ -9,11 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
 	<script src="js/scroll.js"></script>
-	<script src="js/mobile_drop.js"></script>
+	<script src="js/mobileDrop.js"></script>
 	<script src="js/overlay.js"></script>
 </head>
-<body>
-	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
+<body id="top">
+	<a href="#top" id="logo" onclick="scrollToTop(); return false;">&uarr;</a>
 	<nav>
 		<ul>
 			<li><a href="index.html">Home</a></li>
@@ -47,5 +47,6 @@
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
 		</footer>
 	</div>
+	<script src="js/scrollUp.js"></script>
 </body>
 </html>

@@ -9,19 +9,20 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
 	<script src="js/scroll.js"></script>
-	<script src="js/mobile_drop.js"></script>
+	<script src="js/mobileDrop.js"></script>
 	<script src="js/overlay.js"></script>
 	<style>
-		.art_box {
-			display: block;
-		}
-		.little_block {
-			margin-bottom: 2em;
-		}
+	.art_box {
+		display: block;
+		margin: 0 auto;
+	}
+	.little_block {
+		margin-bottom: 2em;
+	}
 	</style>
 </head>
-<body>
-	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
+<body id="top">
+	<a href="#top" id="logo" onclick="scrollToTop(); return false;">&uarr;</a>
 	<nav>
 		<ul>
 			<li><a href="index.html">Home</a></li>
@@ -47,44 +48,43 @@
 		</p>
 	</header>
 	<div id="scrolling">
-		<div class="center">
-			<h2>Coding Portfolio</h2>
-			<h3>Personal Website Version 1</h3>
-			<div class="art_box" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
-				<img src="images/website_ex.jpg" alt="Screenshot of my homepage and text editor" height="450" width="800" />
-				<span class="hidden">Screenshot of my workspace</span>
-			</div>
+		<h2>Coding Portfolio</h2>
+		<h3>Personal Website Version 1</h3>
+		<div class="art_box" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
+			<img src="images/website_ex.jpg" alt="Screenshot of my homepage and text editor" height="450" width="800" />
+			<span class="hidden">Screenshot of my workspace</span>
+		</div>
+		<div class="center" style="text-align:left;">
 			<ul style="text-align:left;">
 				<li><strong>Client:</strong> Myself</li>
 				<li><strong>Date Completed:</strong> January 2016</li>
 				<li><strong>Languages Used:</strong> HTML, CSS, JavaScript, Java</li>
 			</ul>
-			<p class="little_block" style="text-align:left;">
-				<a href="https://github.com/aim2120/personal_website" class="block_link" style="float:left; margin-right:1em;">
-					<img src="images/github.png" alt="GitHub" height="80" width="80" />
-				</a>
-				I created this website from scratch both to expand my online presence and to practice my web dev skill. My university provides a server that I can SSH into to update a directory created for my university ID. Although I have used HTML, CSS, and JavaScript together before, this is the first time I've created a fully fleshed-out website. In Java I programmed an "UpdateRunner" that I used to modify and generate HTML and JavaScript text quickly.
-			</p>
-			<h3>StarField Game</h3>
-			<a href="starfield/game.html" class="art_box" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
-				<img src="images/starfield.jpg" alt="Screenshot of gameplay" height="450" width="800" />
-				<span class="hidden">Click to play!</span>
+			<a href="https://github.com/aim2120/personal_website" class="block_link" style="float:left; margin-right:1em;">
+				<img src="images/github.png" alt="GitHub" height="80" width="80" />
 			</a>
+			I created this website from scratch both to expand my online presence and to practice my web dev skill. My university provides a server that I can SSH into to update a directory created for my university ID. Although I have used HTML, CSS, and JavaScript together before, this is the first time I've created a fully fleshed-out website. In Java I programmed an "UpdateRunner" that I used to modify and generate HTML and JavaScript text quickly.
+		</div>
+		<h3>StarField Game</h3>
+		<a href="starfield/game.html" class="art_box" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
+			<img src="images/starfield.jpg" alt="Screenshot of gameplay" height="450" width="800" />
+			<span class="hidden">Click to play!</span>
+		</a>
+		<div class="center" style="text-align:left;">
 			<ul style="text-align:left;">
 				<li><strong>Client:</strong> iD Tech Camps</li>
 				<li><strong>Date Completed:</strong> July 2015</li>
 				<li><strong>Languages Used:</strong> PaperScript, HTML</li>
 			</ul>
-			<p class="little_block" style="text-align:left;">
-				<a href="https://github.com/aim2120/starfield_game" class="block_link" style="float:left; margin-right:1em;">
-					<img src="images/github.png" alt="GitHub" height="80" width="80" />
-				</a>
-				I created this game as an example for an Intro to Scratch and JavaScript class I taught at iD Tech Camps' Columbia University program. The coursework was based in <a href="http://paperjs.org/about/">PaperScript</a>, which allows for the easy creation of graphical programs. This game was created to illustrate the basic concepts of movement, collisions, timer, scoring, "start game"/"game over" screens, click-based actions, custom sprites, and changing backgrounds.
-			</p>
+			<a href="https://github.com/aim2120/starfield_game" class="block_link" style="float:left; margin-right:1em;">
+				<img src="images/github.png" alt="GitHub" height="80" width="80" />
+			</a>
+			I created this game as an example for an Intro to Scratch and JavaScript class I taught at iD Tech Camps' Columbia University program. The coursework was based in <a href="http://paperjs.org/about/">PaperScript</a>, which allows for the easy creation of graphical programs. This game was created to illustrate the basic concepts of movement, collisions, timer, scoring, "start game"/"game over" screens, click-based actions, custom sprites, and changing backgrounds.
 		</div>
 		<footer>
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
 		</footer>
 	</div>
+	<script src="js/scrollUp.js"></script>
 </body>
 </html>

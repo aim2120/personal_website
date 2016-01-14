@@ -8,7 +8,7 @@ function toggleTitle(elem) {
 	} else {
 		span.className = "visible";
 		var img = elem.children[0];
-		img.style.opacity = "0.6";
-		img.style.filter = "alpha(opacity=60)";
+		img.style.opacity = "0.8";
+		img.style.filter = "alpha(opacity=80)";
 	}
-}s
+}

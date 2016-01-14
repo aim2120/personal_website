@@ -9,12 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
 	<script src="js/scroll.js"></script>
-	<script src="js/mobile_drop.js"></script>
+	<script src="js/mobileDrop.js"></script>
 	<script src="js/overlay.js"></script>
 	<script src="js/even.js"></script>
 </head>
-<body>
-	<a href="index.html" id="logo"><img src="images/logo_100.png" alt="AIM Logo" /></a>
+<body id="top">
+	<a href="#top" id="logo" onclick="scrollToTop(); return false;">&uarr;</a>
 	<nav>
 		<ul>
 			<li><a href="index.html">Home</a></li>
@@ -40,12 +40,10 @@
 		</p>
 	</header>
 	<div id="scrolling">
-		<div class="center">
 			<h2>Artist, Computer Person, Student</h2>
-			<div class="art_box" style="vertical-align:middle;" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
-				<img src="images/about_pic.jpg" alt="Mom and I" height="562" width="800" />
-				<span class="hidden">Mom and I (I'm on the left)</span>
-			</div>
+		<div class="art_box" style="display:block; margin:0 auto;" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
+			<img src="images/about_pic.jpg" alt="Mom and I" height="562" width="800" />
+			<span class="hidden">Mom and I (I'm on the left)</span>
 		</div>
 		<div class="left" style="text-align: left;">
 			<h3>A Quick Introduction</h3>
@@ -72,12 +70,13 @@
 				</li>
 				<li><strong>How would you describe your art? / What is your artist's statement?</strong><br>I am a representational painter who likes to depict the world in a way that seems most accurate to me. Sometimes accuracy comes not from realism, but from emotions evoked. Through my paintings I provide a distorted looking glass that demonstrates the way I view the world. And above all, I value subtle over brash imagery. Take a <a href="art.html">look at my art</a> to see what I mean.</li>
 				<li><strong>What areas of computer science are you most interested in?</strong><br>I have been casually teaching myself web development (HTML, CSS, and JavaScript) since middle school and, with the start of college, have just started gaining a greater knowledge of programming and data storage, primarily with Java. I have completed a <a href="code.html">few notable projects</a> and look forward to learning more about graphics, multimedia, and artificial intelligence, but am really just excited about learning more about CS in general.
-				<li><strong>Why are you studying two very different majors?</strong><br>I have loved art since I was very young and have more recently rekindled an interest in pursuing computer science (I taught myself some basic web dev in middle school), so I couldn't resist studying both in college. I hope to combine the two into a technology-based fine arts career, but am open to all paths and opportunities that present themselves.</li>
-			</ul>
+					<li><strong>Why are you studying two very different majors?</strong><br>I have loved art since I was very young and have more recently rekindled an interest in pursuing computer science (I taught myself some basic web dev in middle school), so I couldn't resist studying both in college. I hope to combine the two into a technology-based fine arts career, but am open to all paths and opportunities that present themselves.</li>
+				</ul>
+			</div>
+			<footer>
+				&copy; 2016 Annalise Irene Mariottini All Rights Reserved
+			</footer>
 		</div>
-		<footer>
-			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
-		</footer>
-	</div>
-</body>
-</html>
+		<script src="js/scrollUp.js"></script>
+	</body>
+	</html>

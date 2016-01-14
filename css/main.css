@@ -20,31 +20,36 @@ div,p,nav,header,footer,section,aside {
 	overflow: hidden;
 }
 #logo {
+	display: block;
 	position: fixed;
-	top: 7px;
-	right: 7px;
-	height: 36px;
-	width: 36px;
+	top: 0;
+	right: 0.2em;
+	padding: 0.1em;
+	min-height: 36px;
+	min-width: 36px;
+	width: 2.7em;
 	z-index: 4000;
-}
-#logo img {
-	height: 100%;
-	width: auto;
+	background-image: url("../images/logo_36.png");
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	text-align: center;
+	text-decoration: none;
+	font-size: 150%;
+	font-weight: bold;
+	color: #4F3F1F;
 }
 nav {
 	position: fixed;
     top: 0px;
     left: 0px;
     min-height: 50px;
-	height: auto;
 	width: 100%;
 	background-color: #EDA;
 	font-family: Futura, "Gill San MT", sans-serif;
 	font-size: 115%;
 	z-index: 2000;
 }
-nav > ul {
-	float: left;
+nav ul {
 	margin: 0;
 	padding: 0;
 }
@@ -64,15 +69,19 @@ nav a:visited {
 }
 .slide > a {
 	display: inline-block;
+	cursor: pointer;
 }
 .slide ul {
-	padding: 0;
-	background-color: #CB8;
-	display: none;
-}
-.slide:hover ul {
 	display: inline-block;
+	vertical-align: bottom;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 0;
+	background-color: #CB8;
 }
+!.slide:hover ul {
+!	display: inline-block;
+!}
 .slide li a:before {
 	content: "\00BB		";
 }
@@ -116,11 +125,10 @@ header p {
 	min-height: 25em;
 	height: auto;
 	width: 80%;
-	padding: 1em 3%;
 	margin-bottom: 2em;
 	background-color: #FFF;
 	text-align: center;
-	overflow: auto;
+	overflow: hidden;
 	z-index: -100;
 }
 h2 {
@@ -139,7 +147,6 @@ h3 {
 
 }
 .left {
-	min-height: 20em;
 	width: 40%;
 	float: left;
 	margin: 1em 0;
@@ -156,21 +163,19 @@ h3 {
 	border-color: #4F3F1F;
 }
 .right {
-	min-height: 20em;
 	width: 40%;
 	float: right;
 	margin: 1em 0;
 	padding: 0 4%;
 }
 .center {
-	min-height: 20em;
 	width: 90%;
-	margin: 1em 0;
+	margin: 1em auto;
 	padding: 0 4%;
 }
 .art_box {
 	display: inline-block;
-	margin: 0.5em;
+	margin: 0 1em 1em 0;
 	position: relative;
 }
 .art_box span {

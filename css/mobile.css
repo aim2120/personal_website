@@ -2,9 +2,9 @@ body {
 	font-size:2em;
 }
 #logo {
-	position: fixed;
-	height: 70px;
-	width: 70px;
+	min-height: 55px;
+	min-width: 55px;
+	background-image: url("../images/logo_55.png");
 }
 nav > ul > li {
 	display: block;
@@ -22,10 +22,9 @@ nav > ul {
 	width: 100%;
 	text-align: center;
 }
-.slide ul {
-	display: none;
-	float: right;
-	width: 50%;
+.slide a {
+	padding-left: 1em;
+	padding-right: 1em;
 }
 header {
 	position: static;
