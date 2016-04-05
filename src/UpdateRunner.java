@@ -30,12 +30,14 @@ public class UpdateRunner {
 			int choice = in.nextInt();
 			
 			switch(choice) {
-			case 0: findreplace(); in.close(); break;
-			case 1: artUpdate(); in.close(); break;
-			case 2: copyrightUpdate(); break;
+			case 0: findreplace(); break;
+			case 1: artUpdate(); break;
+			case 2: copyrightUpdate();; break;
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("That input is not valid.");
+		} finally {
+			in.close();
 		}
 	}
 	
@@ -52,8 +54,9 @@ public class UpdateRunner {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			in.close();
 		}
-		in.close();
 	}
 	
 	public static void artUpdate() {
@@ -88,8 +91,9 @@ public class UpdateRunner {
 			System.out.println("That input is not valid.");
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			in.close();
 		}
-		in.close();
 	}
 	
 	public static void copyrightUpdate() {

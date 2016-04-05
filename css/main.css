@@ -42,7 +42,7 @@ nav {
 	position: fixed;
     top: 0px;
     left: 0px;
-    min-height: 50px;
+    min-height: 45px;
 	width: 100%;
 	background-color: #EDA;
 	font-family: Futura, "Gill San MT", sans-serif;
@@ -85,10 +85,31 @@ nav a:visited {
 .slide li a:before {
 	content: "\00BB		";
 }
+#artnav {
+	position: fixed;
+	top: 20%;
+	right: 0;
+	margin: 0 auto;
+	font-size: 120%;
+	opacity: 0;
+    filter: alpha(opacity=0);
+	z-index: 1000;
+}
+#artnav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#artnav ul li {
+	border-color: #771111;
+	border-width: 2px 0 2px 2px;
+	border-style: solid;
+	margin: 0.5em 0;
+}
 header {
 	height: 1277px;
 	width: 100%;
-	background-color: #F5FFF0;
+	background-color: #7E7957;
 	background-image: url("../images/banner.jpg");
 	background-position: center top;
 	background-repeat: no-repeat;
@@ -116,15 +137,15 @@ header p {
 }
 .stuck {
 	position: fixed;
-	top: -300px;
 }
 #scrolling {
 	position: absolute;
-	top: 47em;
-	left: 7%;
+	top: 1080px;
+	left: 50%;
 	min-height: 25em;
 	height: auto;
 	width: 80%;
+	margin-left: -40%;
 	margin-bottom: 2em;
 	background-color: #FFF;
 	text-align: center;
@@ -147,6 +168,7 @@ h3 {
 
 }
 .left {
+	display: inline-block;
 	width: 40%;
 	float: left;
 	margin: 1em 0;
@@ -163,6 +185,7 @@ h3 {
 	border-color: #4F3F1F;
 }
 .right {
+	display: inline-block;
 	width: 40%;
 	float: right;
 	margin: 1em 0;

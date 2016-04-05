@@ -1,16 +1,10 @@
 body {
-	font-size:2em;
+	font-size: 2em;
 }
 #logo {
 	min-height: 55px;
 	min-width: 55px;
 	background-image: url("../images/logo_55.png");
-}
-nav > ul > li {
-	display: block;
-	border-width: 0 2px 2px 2px;
-	border-style: solid;
-	border-color: #4F3F1F;
 }
 nav {
 	position: static;
@@ -22,21 +16,22 @@ nav > ul {
 	width: 100%;
 	text-align: center;
 }
+nav > ul > li {
+	display: block;
+	border-width: 0 2px 2px 2px;
+	border-style: solid;
+	border-color: #4F3F1F;
+}
 .slide a {
 	padding-left: 1em;
 	padding-right: 1em;
 }
+#artnav {
+	display: none;
+}
 header {
 	position: static;
 	font-size: 150%;
-	padding-top: 0px;
-	max-height: 1000px;
-}
-h1 {
-	margin-bottom: 0;
-}
-header p {
-	margin-top: 0;
 }
 .unstuck {
 	position: static;

@@ -8,6 +8,7 @@
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
+	<script src="js/main.js"></script>
 	<script src="js/scroll.js"></script>
 	<script src="js/mobileDrop.js"></script>
 	<script src="js/overlay.js"></script>
@@ -15,6 +16,7 @@
 	.art_box {
 		display: block;
 		margin: 0 auto;
+		width: 800px;
 	}
 	.little_block {
 		margin-bottom: 2em;
@@ -25,7 +27,7 @@
 	<a href="#top" id="logo" onclick="scrollToTop(); return false;">&uarr;</a>
 	<nav>
 		<ul>
-			<li><a href="index.html">Home</a></li>
+			<li><a href="/~aim2120/">Home</a></li>
 			<li><a href="art.html">Art</a></li>
 			<li><a href="code.html">Code</a></li>
 			<li><a href="blog.html">Blog</a></li>
@@ -55,7 +57,7 @@
 			<span class="hidden">Screenshot of my workspace</span>
 		</div>
 		<div class="center" style="text-align:left;">
-			<ul style="text-align:left;">
+			<ul>
 				<li><strong>Client:</strong> Myself</li>
 				<li><strong>Date Completed:</strong> January 2016</li>
 				<li><strong>Languages Used:</strong> HTML, CSS, JavaScript, Java</li>
@@ -63,7 +65,7 @@
 			<a href="https://github.com/aim2120/personal_website" class="block_link" style="float:left; margin-right:1em;">
 				<img src="images/github.png" alt="GitHub" height="80" width="80" />
 			</a>
-			I created this website from scratch both to expand my online presence and to practice my web dev skill. My university provides a server that I can SSH into to update a directory created for my university ID. Although I have used HTML, CSS, and JavaScript together before, this is the first time I've created a fully fleshed-out website. In Java I programmed an "UpdateRunner" that I used to modify and generate HTML and JavaScript text quickly.
+			I created this website from scratch both to expand my online presence and to practice my web development skill. My university provides a server that I can SSH into to update a directory created for my university ID. Although I have used HTML, CSS, and JavaScript together before, this is the first time I've created a fully fleshed-out website. In Java I programmed an update runner that I used to modify and generate HTML and JavaScript text quickly. Currently the update runner can generate HTML image tags for my art page and JavaScript arrays for use in the image randomizer in the front page, update the copyright year on all pages, and find/replace a given String on all HTML pages present.
 		</div>
 		<h3>StarField Game</h3>
 		<a href="starfield/game.html" class="art_box" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)">
@@ -71,7 +73,7 @@
 			<span class="hidden">Click to play!</span>
 		</a>
 		<div class="center" style="text-align:left;">
-			<ul style="text-align:left;">
+			<ul>
 				<li><strong>Client:</strong> iD Tech Camps</li>
 				<li><strong>Date Completed:</strong> July 2015</li>
 				<li><strong>Languages Used:</strong> PaperScript, HTML</li>
@@ -85,6 +87,6 @@
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
 		</footer>
 	</div>
-	<script src="js/scrollUp.js"></script>
+	
 </body>
 </html>

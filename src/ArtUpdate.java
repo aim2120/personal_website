@@ -13,7 +13,7 @@ import java.util.List;
  * All art images must be stored in directories organized by type (genre),
  * 		contained in one parent directory
  * File names as follows: Art_Image_Title_YYYYMMDD
- * 		add _(unfinished) instead of date if not finished
+ * 		add _(unfinished) instead of dateID if not finished
  * 		must be .jpg or .png files
  * @author Annalise Mariottini
  */
@@ -55,14 +55,14 @@ public class ArtUpdate {
 			File[] imageFiles = currentFolder.listFiles();
 			for(File currentFile: imageFiles) { //goes through all image files
 				String name = currentFile.getName();
-				if((name.substring(name.lastIndexOf('.')).equals(".jpg") ||
-				name.substring(name.lastIndexOf('.')).equals(".png")) &&
+				if((name.substring(name.lastIndexOf('.')).toLowerCase().equals(".jpg") ||
+				name.substring(name.lastIndexOf('.')).toLowerCase().equals(".png")) &&
 				!name.toLowerCase().contains("unfinished")) {
-					String date = name.substring(name.lastIndexOf('_')+1, name.lastIndexOf('.'));
+					String dateID = name.substring(name.lastIndexOf('_') + 1, name.lastIndexOf('.'));
 					name = name.substring(0, name.lastIndexOf('_'));
 					name = name.replace('_', ' ');
 					String type = currentFolder.getName();
-					ArtFileInfo item = new ArtFileInfo(type,name,date,currentFile);
+					ArtFileInfo item = new ArtFileInfo(type,name,dateID,currentFile);
 					artList.add(item);
 				}
 			}
@@ -88,13 +88,13 @@ public class ArtUpdate {
 			pageText.append(line+System.lineSeparator());
 			if(line.contains(HTML_ART_START)) {
 				
-				if(pagePath.contains(HOME_PAGE)) { // series of if/else to find which tags to create
+				if(pagePath.contains(HOME_PAGE)) { // series of if/else to find which type of code to create
 					pageText.append(generateJsImageArrays());
 				} else if (pagePath.contains(ART_PAGE)) {
 					pageText.append(generateArtTags());
 				}
 				
-				while(!line.contains(HTML_ART_END)) {
+				while(!line.contains(HTML_ART_END)) { // going over the old art HTML code
 					line = pageBR.readLine();
 				}
 				pageText.append(line+System.lineSeparator());
@@ -158,6 +158,17 @@ public class ArtUpdate {
 			String altText = currentArt.name;
 			inputText.append(altText);
 			inputText.append("\"");
+		}
+		inputText.append("];"+System.lineSeparator());
+		
+		inputText.append("var id = [");
+		for(int i = 0; i < artList.size(); i++) {
+			if(i != 0) {
+				inputText.append(", ");
+			}
+			ArtFileInfo currentArt = artList.get(i);
+			int id = currentArt.dateID;
+			inputText.append(id);
 		}
 		inputText.append("];"+System.lineSeparator());
 		
@@ -225,24 +236,38 @@ public class ArtUpdate {
 	public class ArtFileInfo implements Comparable<ArtFileInfo> {
 		
 		private String type;
+		private int typeOrder;
 		private String name;
-		private int date; // format: YYYYMMDD
+		private int dateID; // format: YYYYMMDD
 		private File file;
 		
 		private ArtFileInfo(String t, String n, String d, File f) throws NumberFormatException {
 			type = t;
+			switch(type) {
+				case "Painting": typeOrder = 0; break;
+				case "Sculpture": typeOrder = 1; break;
+				case "Drawing": typeOrder = 2; break;
+			}
 			name = n;
-			date = Integer.parseInt(d);
+			dateID = Integer.parseInt(d);
 			file = f;
 		}
 		
-		public int compareTo(ArtFileInfo other) { // reverse order
-			if (this.date > other.date) {
+		public int compareTo(ArtFileInfo other) { // type order, then reverse date order
+			// sort by type first
+			if (this.typeOrder < other.typeOrder) {
 				return -1;
-			} else if (this.date < other.date)
+			}
+			if (this.typeOrder > other.typeOrder) {
 				return 1;
-			else
-				return 0;
+			}
+			if (this.dateID > other.dateID) {
+				return -1;
+			}
+			if (this.dateID < other.dateID)
+				return 1;
+			
+			return 0;
 		}
 	}
 }

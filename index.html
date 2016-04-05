@@ -8,6 +8,7 @@
 	<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" media="(max-device-width:769px)" href="css/mobile.css">
+	<script src="js/main.js"></script>
 	<script src="js/scroll.js"></script>
 	<script src="js/mobileDrop.js"></script>
 	<script src="js/overlay.js"></script>
@@ -15,9 +16,10 @@
 	<script type="text/javascript">
 	function changeImages() {
 		// art starts here
-		var thumbSRC = ["images/thumbs/Doris_Lake_20151202.jpg", "images/thumbs/Rock_Soap_Bubbles_20151201.jpg", "images/thumbs/Self_Portrait_2_20151201.jpg", "images/thumbs/Savior_20151102.jpg", "images/thumbs/Vanitas_Inspired_Still_Life_20151002.jpg", "images/thumbs/Monterey_Bay_20151001.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/thumbs/Narrative_Still_Life_20150701.jpg", "images/thumbs/Abstract_Practice_20150602.jpg", "images/thumbs/Self_Portrait_1_20150601.jpg", "images/thumbs/Carissa's_Dog_20141001.jpg", "images/thumbs/Burnt_Toast_20140801.jpg", "images/thumbs/Peach_Fuzz_20140702.jpg", "images/thumbs/Bruised_Apple_20140701.jpg"];
-		var imageHREF = ["images/Painting/Doris_Lake_20151202.jpg", "images/Painting/Rock_Soap_Bubbles_20151201.jpg", "images/Painting/Self_Portrait_2_20151201.jpg", "images/Painting/Savior_20151102.jpg", "images/Painting/Vanitas_Inspired_Still_Life_20151002.jpg", "images/Painting/Monterey_Bay_20151001.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/Painting/Narrative_Still_Life_20150701.jpg", "images/Painting/Abstract_Practice_20150602.jpg", "images/Painting/Self_Portrait_1_20150601.jpg", "images/Painting/Carissa's_Dog_20141001.jpg", "images/Painting/Burnt_Toast_20140801.jpg", "images/Painting/Peach_Fuzz_20140702.jpg", "images/Painting/Bruised_Apple_20140701.jpg"];
-		var imageALT = ["Doris Lake", "Rock Soap Bubbles", "Self Portrait 2", "Savior", "Vanitas Inspired Still Life", "Monterey Bay", "Safety Cone and Blue Guitar 2", "Safety Cone and Blue Guitar 1", "Narrative Still Life", "Abstract Practice", "Self Portrait 1", "Carissa's Dog", "Burnt Toast", "Peach Fuzz", "Bruised Apple"];
+var thumbSRC = ["images/thumbs/Doris_Lake_20151203.jpg", "images/thumbs/Rock_Soap_Bubbles_20151202.jpg", "images/thumbs/Self_Portrait_2_20151201.jpg", "images/thumbs/Savior_20151102.jpg", "images/thumbs/Vanitas_Inspired_Still_Life_20151002.jpg", "images/thumbs/Monterey_Bay_20151001.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/thumbs/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/thumbs/Narrative_Still_Life_20150701.jpg", "images/thumbs/Abstract_Practice_20150602.jpg", "images/thumbs/Self_Portrait_1_20150601.jpg", "images/thumbs/Columbia_Lion_20141101.JPG", "images/thumbs/Carissa's_Dog_20141001.jpg", "images/thumbs/Burnt_Toast_20140801.jpg", "images/thumbs/Peach_Fuzz_20140702.jpg", "images/thumbs/Bruised_Apple_20140701.jpg", "images/thumbs/Travel_Mug_(back)_20150401.JPG", "images/thumbs/Travel_Mug_(front)_20150401.JPG", "images/thumbs/Travel_Mug_(top)_20150401.JPG", "images/thumbs/Hand_Sketch_(side)_20150301.JPG", "images/thumbs/Hand_Sketch_(three_quarters)_20150301.JPG", "images/thumbs/Hand_Sketch_(top)_20150301.JPG", "images/thumbs/Trapped_(side)_20150201.JPG", "images/thumbs/Trapped_(three_quarters)_20150201.JPG", "images/thumbs/Trapped_(top)_20150201.JPG", "images/thumbs/Beach_Divide_20130201.jpg", "images/thumbs/Off_to_Sea_20130101.jpg", "images/thumbs/The_Violinist_20121201.jpg"];
+var imageHREF = ["images/Painting/Doris_Lake_20151203.jpg", "images/Painting/Rock_Soap_Bubbles_20151202.jpg", "images/Painting/Self_Portrait_2_20151201.jpg", "images/Painting/Savior_20151102.jpg", "images/Painting/Vanitas_Inspired_Still_Life_20151002.jpg", "images/Painting/Monterey_Bay_20151001.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_2_20150902.jpg", "images/Painting/Safety_Cone_and_Blue_Guitar_1_20150901.jpg", "images/Painting/Narrative_Still_Life_20150701.jpg", "images/Painting/Abstract_Practice_20150602.jpg", "images/Painting/Self_Portrait_1_20150601.jpg", "images/Painting/Columbia_Lion_20141101.JPG", "images/Painting/Carissa's_Dog_20141001.jpg", "images/Painting/Burnt_Toast_20140801.jpg", "images/Painting/Peach_Fuzz_20140702.jpg", "images/Painting/Bruised_Apple_20140701.jpg", "images/Sculpture/Travel_Mug_(back)_20150401.JPG", "images/Sculpture/Travel_Mug_(front)_20150401.JPG", "images/Sculpture/Travel_Mug_(top)_20150401.JPG", "images/Sculpture/Hand_Sketch_(side)_20150301.JPG", "images/Sculpture/Hand_Sketch_(three_quarters)_20150301.JPG", "images/Sculpture/Hand_Sketch_(top)_20150301.JPG", "images/Sculpture/Trapped_(side)_20150201.JPG", "images/Sculpture/Trapped_(three_quarters)_20150201.JPG", "images/Sculpture/Trapped_(top)_20150201.JPG", "images/Drawing/Beach_Divide_20130201.jpg", "images/Drawing/Off_to_Sea_20130101.jpg", "images/Drawing/The_Violinist_20121201.jpg"];
+var imageALT = ["Doris Lake", "Rock Soap Bubbles", "Self Portrait 2", "Savior", "Vanitas Inspired Still Life", "Monterey Bay", "Safety Cone and Blue Guitar 2", "Safety Cone and Blue Guitar 1", "Narrative Still Life", "Abstract Practice", "Self Portrait 1", "Columbia Lion", "Carissa's Dog", "Burnt Toast", "Peach Fuzz", "Bruised Apple", "Travel Mug (back)", "Travel Mug (front)", "Travel Mug (top)", "Hand Sketch (side)", "Hand Sketch (three quarters)", "Hand Sketch (top)", "Trapped (side)", "Trapped (three quarters)", "Trapped (top)", "Beach Divide", "Off to Sea", "The Violinist"];
+var id = [20151203, 20151202, 20151201, 20151102, 20151002, 20151001, 20150902, 20150901, 20150701, 20150602, 20150601, 20141101, 20141001, 20140801, 20140702, 20140701, 20150401, 20150401, 20150401, 20150301, 20150301, 20150301, 20150201, 20150201, 20150201, 20130201, 20130101, 20121201];
 		// art ends here
 		// all arrays must be same length, should be if java runs correctly
 		var links = document.getElementsByClassName("art_box");
@@ -27,14 +29,14 @@
 			var link = links[i];
 			do {
 				var rand = Math.floor(Math.random() * imageHREF.length);
-			} while(contains(past,rand));
+			} while(contains(past,id[rand]));
 			link.href = imageHREF[rand];
 			var span = link.children[1];
 			span.innerHTML = imageALT[rand];
 			var img = link.children[0];
 			img.src = thumbSRC[rand];
 			img.alt = imageALT[rand];
-			past.push(rand);
+			past.push(id[rand]);
 		}
 
 		function contains(arr, num) {
@@ -48,11 +50,11 @@
 	}
 	</script>
 </head>
-<body id="top" id="top" onload="extendCenter(); changeImages();">
+<body id="top">
 	<a href="#top" id="logo" onclick="scrollToTop(); return false;">&uarr;</a>
 	<nav>
 		<ul>
-			<li><a href="index.html">Home</a></li>
+			<li><a href="/~aim2120/">Home</a></li>
 			<li><a href="art.html">Art</a></li>
 			<li><a href="code.html">Code</a></li>
 			<li><a href="blog.html">Blog</a></li>
@@ -89,16 +91,16 @@
 				<li><a href="https://www.linkedin.com/in/amariottini"><img src="images/linkedin.png" alt="LinkedIn" height="50" width="55" /></a></li>
 				<li><a href="https://www.github.com/aim2120"><img src="images/github.png" alt="GitHub" height="50" width="50" /></a></li>
 				<li><a href="https://www.facebook.com/annaliseirene"><img src="images/facebook.png" alt="Facebook" height="50" width="50" /></a></li>
-				<li><a href="https://www.reddit.com/user/aim2120"><img src="images/reddit.png" alt="Reddit" height="50" width="36" /></a></li>
 				<li><a href="https://www.instagram.com/anleesemartini"><img src="images/instagram.png" alt="Instagram" height="50" width="50" /></a></li>
+				<li><a href="https://www.reddit.com/user/aim2120"><img src="images/reddit.png" alt="Reddit" height="50" width="36" /></a></li>
 			</ul>
 			<a href="connect.html" class="block_link">More ways to connect</a>
 		</div>
 		<div class="divide"></div>
-		<div class="right">
+		<div class="right" id="changeImages">
 			<h2>Some Art</h2>
-			<a class="art_box" href="images/Painting/Doris_Lake_20151202.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Doris_Lake_20151202.jpg" alt="Doris Lake" height="250" width="250" /><span class="hidden">Doris Lake</span></a>
-			<a class="art_box" href="images/Painting/Rock_Soap_Bubbles_20151201.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Rock_Soap_Bubbles_20151201.jpg" alt="Rock Soap Bubbles" height="250" width="250" /><span class="hidden">Rock Soap Bubbles</span></a>
+			<a class="art_box" href="images/Painting/Doris_Lake_20151203.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Doris_Lake_20151203.jpg" alt="Doris Lake" height="250" width="250" /><span class="hidden">Doris Lake</span></a>
+			<a class="art_box" href="images/Painting/Rock_Soap_Bubbles_20151202.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Rock_Soap_Bubbles_20151202.jpg" alt="Rock Soap Bubbles" height="250" width="250" /><span class="hidden">Rock Soap Bubbles</span></a>
 			<a class="art_box" href="images/Painting/Self_Portrait_2_20151201.jpg" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/Self_Portrait_2_20151201.jpg" alt="Self Portrait 2" height="250" width="250" /><span class="hidden">Self Portrait 2</span></a>
 			<a class="art_box" href="art.html" onmouseover="toggleTitle(this)" onmouseout="toggleTitle(this)" ><img src="images/thumbs/empty.jpg" alt="See more..." height="250" width="250"/><span class="hidden visible-on-mobile">See more</span></a>
 		</div>
@@ -106,6 +108,6 @@
 			&copy; 2016 Annalise Irene Mariottini All Rights Reserved
 		</footer>
 	</div>
-	<script src="js/scrollUp.js"></script>
+	
 </body>
 </html>

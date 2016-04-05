@@ -17,6 +17,3 @@ function extendCenter() {
 		}
 	}
 }
-
-window.onload = function() {extendCenter()};
-window.onresize = function() {extendCenter()};
