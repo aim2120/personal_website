@@ -39,7 +39,6 @@ function stickyScroll() {
 
 function artnavInit() {
 	artnavTop = document.getElementById("artnav").getBoundingClientRect().top + 200;
-
 	var scrollingPos = document.getElementById("scrolling").getBoundingClientRect().top;
 	if (scrollingPos <= artnavTop) {
 		var artnav = document.getElementById("artnav");
@@ -49,19 +48,27 @@ function artnavInit() {
 	}
 }
 
-function artnavScroll() {
+function artnavToggle(amt) {
 	var artnav = document.getElementById("artnav");
+	var cond1 = artnavOpacity > 0 && amt < 0;
+	var cond2 = artnavOpacity < 1 && amt > 0;
+	if(cond1 || cond2) {
+		artnavOpacity += amt;
+		artnav.style.opacity = artnavOpacity;
+		var lrgOpacity = artnavOpacity * 10;
+		artnav.style.filter = "alpha(opacity="+lrgOpacity+")";
+		timeOut=setTimeout(function() {artnavToggle(amt);},100);
+	} else {
+		clearTimeout(timeOut);
+	}
+}
+
+function artnavScroll() {
 	var scrollingPos = document.getElementById("scrolling").getBoundingClientRect().top;
 	if (scrollingPos <= artnavTop && artnavOpacity < 1) {
-		artnavOpacity += 0.25;
-		artnav.style.opacity = artnavOpacity;
-		var lrgOpacity = artnavOpacity * 10;
-		artnav.style.filter = "alpha(opacity="+lrgOpacity+")";
+		artnavToggle(0.06025);
 	} else if (scrollingPos > artnavTop && artnavOpacity > 0) {
-		artnavOpacity -= 0.25;
-		artnav.style.opacity = artnavOpacity;
-		var lrgOpacity = artnavOpacity * 10;
-		artnav.style.filter = "alpha(opacity="+lrgOpacity+")";
+		artnavToggle(-0.06025);
 	}
 }
 

@@ -247,6 +247,7 @@ public class ArtUpdate {
 				case "Painting": typeOrder = 0; break;
 				case "Sculpture": typeOrder = 1; break;
 				case "Drawing": typeOrder = 2; break;
+				case "Design": typeOrder = 3; break;
 			}
 			name = n;
 			dateID = Integer.parseInt(d);
