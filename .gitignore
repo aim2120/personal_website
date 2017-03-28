@@ -1,7 +1,11 @@
+*.swp
 /ref_images
 /bin
 .classpath
 .project
-/nbproject/private/
-/build/
 Thumbs.db
+/java/nbproject/private/
+/java/build/
+/java/nbproject/
+build.xml
+manifest.mf

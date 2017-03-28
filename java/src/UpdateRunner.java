@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class UpdateRunner {
 	
 	public static final String[] ART_PAGES = { // all pages that have art updates
-			"./index.html"
-			,"./art.html"
+			"../index.html"
+			,"../art.html"
 			};
-	public static final String ROOT_FOLDER = ".";
-	public static final String IMAGE_FOLDER = "./images";
+	public static final String ROOT_FOLDER = "..";
+	public static final String IMAGE_FOLDER = "../images";
 
 	public static void main(String[] args) {
 		
