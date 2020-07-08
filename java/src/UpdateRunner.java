@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class UpdateRunner {
 	
 	public static final String[] ART_PAGES = { // all pages that have art updates
-			"../index.html"
-			,"../art.html"
-			};
+		"../index.html"
+		,"../art.html"
+	};
 	public static final String ROOT_FOLDER = "..";
 	public static final String IMAGE_FOLDER = "../images";
 
@@ -32,7 +32,8 @@ public class UpdateRunner {
 			switch(choice) {
 			case 0: findreplace(); break;
 			case 1: artUpdate(); break;
-			case 2: copyrightUpdate();; break;
+			case 2: copyrightUpdate(); break;
+			case 3: templateUpdate(); break;
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("That input is not valid.");
@@ -100,6 +101,14 @@ public class UpdateRunner {
 		try{
 			CopyrightUpdate.update(ROOT_FOLDER);
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void templateUpdate() {
+		try{
+			TemplateUpdate.update(ROOT_FOLDER, null);
+		} catch (IOException e){
 			e.printStackTrace();
 		}
 	}

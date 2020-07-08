@@ -18,12 +18,12 @@ import java.util.List;
  * @author Annalise Mariottini
  */
 public class ArtUpdate {
-	private final String HTML_ART_START = "art starts here";
-	private final String HTML_ART_END = "art ends here";
-	private final String HOME_PAGE = "index";
-	private final String ART_PAGE = "art";
-	private final String THUMB_HEIGHT = "400";
-	private final String THUMB_WIDTH = "400";
+	private static final String HTML_ART_START = "$artContentStart";
+	private static final String HTML_ART_END = "$artContentEnd";
+	private static final String HOME_PAGE = "index";
+	private static final String ART_PAGE = "art";
+	private static final String THUMB_HEIGHT = "400";
+	private static final String THUMB_WIDTH = "400";
 	
 	private File parentArtFolder; // the directory holding all art image subdirectories
 	private List<ArtFileInfo> artList; // List to contain all art objects
@@ -87,14 +87,13 @@ public class ArtUpdate {
 		while((line = pageBR.readLine()) != null) {
 			pageText.append(line+System.lineSeparator());
 			if(line.contains(HTML_ART_START)) {
-				
-				if(pagePath.contains(HOME_PAGE)) { // series of if/else to find which type of code to create
+				if(pagePath.contains(HOME_PAGE)) {
 					pageText.append(generateJsImageArrays());
 				} else if (pagePath.contains(ART_PAGE)) {
 					pageText.append(generateArtTags());
 				}
 				
-				while(!line.contains(HTML_ART_END)) { // going over the old art HTML code
+				while(!line.contains(HTML_ART_END)) {
 					line = pageBR.readLine();
 				}
 				pageText.append(line+System.lineSeparator());
@@ -212,7 +211,7 @@ public class ArtUpdate {
 			inputText.append("<img src=\"");
 			inputText.append(thumbPath);
 			inputText.append("\" alt=\"");
-			inputText.append(currentArt.type+" — "+currentArt.name);
+			inputText.append(currentArt.type+" - "+currentArt.name);
 			inputText.append("\" height=\"");
 			inputText.append(THUMB_HEIGHT);
 			inputText.append("\" width=\"");
