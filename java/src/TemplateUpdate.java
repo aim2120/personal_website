@@ -7,112 +7,128 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 /**
- *
+ * Updates template on all HTML pages
  * @author annaliseirene
  */
 public class TemplateUpdate {
-	private static final String PAGE_CONTENT_START = "$pageContentStart";
-	private static final String PAGE_CONTENT_END = "$pageContentEnd";
-	private static final String TEMPLATE_PAGE = "template";
+	private static final String KEY_SYMBOL = "<!--$";
+	private static final String KEY_SYMBOL_START = "<!--$START";
+	private static final String KEY_SYMBOL_END = "<!--$END";
+	private static final String TEMPLATE_PAGE = "template.html";
 	
-	private static StringBuilder templateStart = new StringBuilder();
-	private static StringBuilder templateEnd = new StringBuilder();
 	
-	public static void update(String path, File template) throws IOException {
+	/**
+	 * Reads through content HTML files and creates corresponding build files
+	 * Uses template.html as template
+	 * @param path
+	 * 		root folder
+	 * @throws IOException 
+	 * 		if given path is not valid, or if no template file exists
+	 */
+	public static void update(String path) throws IOException {
 		File rootDirectory = new File(path);
-		File templateFile = template;
 		File[] folderContents = rootDirectory.listFiles();
-		List<File> htmlFiles = new ArrayList<>();
-		List<File> subDirectories = new ArrayList<>();
+		File templateFile = null;
+		List<File> contentFiles = new ArrayList<>();
 		
 		for(File item: folderContents) { // finding HTML files
 			String name = item.getName();
 			if(name.contains(TEMPLATE_PAGE)) {
 				templateFile = item;
-			} else if(name.contains(".") && 
-				name.substring(name.lastIndexOf('.')).equals(".html")) {
-				htmlFiles.add(item);
-			} else if(item.isDirectory()) {
-				subDirectories.add(item);
+			} else if(name.contains("content.html")) {
+				contentFiles.add(item);
 			}
 		}
 		
 		if (templateFile == null) {
 			throw new FileNotFoundException("No template file found.");
-		} else {
-			buildTemplateStrings(templateFile);
 		}
-		
-		// recursively goes down each folder to find all HTML files
-		for(File subDirectory: subDirectories) { 
-			update(subDirectory.getPath(), templateFile);
-		}
-		
-		for(File page: htmlFiles) {
-			FileReader pageFR = new FileReader(page);
-			BufferedReader pageBR = new BufferedReader(pageFR);
+
+		String[] templateLines = readTemplateFile(templateFile);
+	
+		for(File content: contentFiles) {
+			FileReader contentFR = new FileReader(content);
+			BufferedReader contentBR = new BufferedReader(contentFR);
 			StringBuilder pageText = new StringBuilder();
-			String line;
-			
-			pageText.append(templateStart.toString());
-			while((line = pageBR.readLine()) != null)  { // looking for content start
-				if(line.contains(PAGE_CONTENT_START)) {
+			HashMap<String, String> contentMap = new HashMap<>();
+			String line, keyLine = "";
+
+			while ((line = contentBR.readLine()) != null) {
+				if(keyLine.contains(KEY_SYMBOL_START)) {
+					StringBuilder lines = new StringBuilder();
+					do {
+						if (line.contains(KEY_SYMBOL_END)) {
+							break;
+						}
+						line += System.lineSeparator();
+						lines.append(line);
+
+					} while((line = contentBR.readLine()) != null);
+					contentMap.put(keyLine.trim(), lines.toString());
+				} else if(keyLine.contains(KEY_SYMBOL)) {
+					line += System.lineSeparator();
+					contentMap.put(keyLine.trim(), line);
+				}
+				keyLine = line;
+			}
+
+			for (int i = 0; i < templateLines.length; i++) {
+				line = templateLines[i];
+				if(line.contains(KEY_SYMBOL_START)) { // multiple line
+					pageText.append(contentMap.get(line.trim()));
+					do {
+						line = templateLines[++i];
+					} while(!line.contains(KEY_SYMBOL_END));
+				} else if(line.contains(KEY_SYMBOL)) { // single line
+					pageText.append(contentMap.get(line.trim()));
+					i++;
+				} else {
 					line += System.lineSeparator();
 					pageText.append(line);
-					break;
 				}
 			}
-			while((line = pageBR.readLine()) != null) { // reading content until end
-				line += System.lineSeparator();
-				pageText.append(line);
-				if(line.contains(PAGE_CONTENT_END)) {
-					break;
-				}
+
+			contentFR.close();
+			contentBR.close();
+			
+			String pageName = content.getName().replace("_content", "");
+			File newPage = new File(rootDirectory, pageName);
+			if (!newPage.exists()) {
+				newPage.createNewFile();
 			}
-			pageText.append(templateEnd.toString());
-			
-			pageFR.close();
-			pageBR.close();
-			
-			FileWriter pageFW = new FileWriter(page);
+			FileWriter pageFW = new FileWriter(newPage);
 			BufferedWriter pageBW = new BufferedWriter(pageFW);
 			pageBW.write(pageText.toString());
 			pageBW.flush();
 			pageBW.close();
 		}
-		
 	}
 	
-	private static void buildTemplateStrings(File templateFile) throws IOException {
+	/**
+	 * Reads lines of template file
+	 * @param templateFile
+	 * @return
+	 * 		array of lines from template (include \n)
+	 * @throws IOException 
+	 * 		if file not found
+	 */
+	private static String[] readTemplateFile(File templateFile) throws IOException {
 		FileReader tempFR= new FileReader(templateFile);
 		BufferedReader tempBR = new BufferedReader(tempFR);
+		StringBuilder tempBuilder = new StringBuilder();
 		String line;
 		
-		//reading template start
 		while((line = tempBR.readLine()) != null)  {
-			if(line.contains(PAGE_CONTENT_START)) {
-				break;
-			}
 			line += System.lineSeparator();
-			templateStart.append(line);
+			tempBuilder.append(line);
 		}
-
-		//skipping filler lines
-		while((line = tempBR.readLine()) != null) {
-			if(line.contains(PAGE_CONTENT_END)) {
-				break;
-			}
-		}
-
-		//reading template end
-		while((line = tempBR.readLine()) != null) {
-			line += System.lineSeparator();
-			templateStart.append(line);
-		}
-		
+	
 		tempFR.close();
 		tempBR.close();
+		return tempBuilder.toString().split("\n");
 	}
 }
+

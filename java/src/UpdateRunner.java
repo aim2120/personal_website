@@ -23,6 +23,7 @@ public class UpdateRunner {
 		System.out.println("0. Find/Replace All update");
 		System.out.println("1. Art images update");
 		System.out.println("2. Copyright update");
+		System.out.println("3. Template update");
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -107,7 +108,7 @@ public class UpdateRunner {
 
 	public static void templateUpdate() {
 		try{
-			TemplateUpdate.update(ROOT_FOLDER, null);
+			TemplateUpdate.update(ROOT_FOLDER);
 		} catch (IOException e){
 			e.printStackTrace();
 		}
