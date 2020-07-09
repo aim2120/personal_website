@@ -12,7 +12,7 @@ public class UpdateRunner {
 	
 	public static final String[] ART_PAGES = { // all pages that have art updates
 		"../index.html"
-		,"../art.html"
+		,"../art_content.html"
 	};
 	public static final String ROOT_FOLDER = "..";
 	public static final String IMAGE_FOLDER = "../images";
@@ -32,9 +32,9 @@ public class UpdateRunner {
 			
 			switch(choice) {
 			case 0: findreplace(); break;
-			case 1: artUpdate(); break;
-			case 2: copyrightUpdate(); break;
-			case 3: templateUpdate(); artUpdate(); break;
+			case 1: artUpdate(); templateUpdate(); break;
+			case 2: copyrightUpdate(); templateUpdate(); break;
+			case 3: templateUpdate(); break;
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("That input is not valid.");

@@ -20,8 +20,10 @@ import java.util.List;
 public class ArtUpdate {
 	private static final String HTML_ART_START = "$artContentStart";
 	private static final String HTML_ART_END = "$artContentEnd";
+	private static final String ART_NAV_START= "$artNavStart";
+	private static final String ART_NAV_END= "$artNavEnd";
 	private static final String HOME_PAGE = "index";
-	private static final String ART_PAGE = "art";
+	private static final String ART_PAGE = "art_content";
 	private static final String THUMB_HEIGHT = "400";
 	private static final String THUMB_WIDTH = "400";
 	
@@ -47,11 +49,13 @@ public class ArtUpdate {
 		for(File folderItem: folderContents) { // adding correct directories
 			if(folderItem.isDirectory() && !folderItem.getName().equals("thumbs")) {
 				artTypeFolders.add(folderItem);
+				artTypes.add(folderItem.getName());
 			}
 		}
 
+		Collections.sort(artTypes);
+
 		for(File currentFolder: artTypeFolders) { //goes through all art types
-			artTypes.add(currentFolder.getName());
 			File[] imageFiles = currentFolder.listFiles();
 			for(File currentFile: imageFiles) { //goes through all image files
 				String name = currentFile.getName();
@@ -68,6 +72,7 @@ public class ArtUpdate {
 			}
 		}
 		
+		Collections.sort(artTypes);
 		Collections.sort(artList);
 	}
 	
@@ -86,16 +91,22 @@ public class ArtUpdate {
 		
 		while((line = pageBR.readLine()) != null) {
 			pageText.append(line+System.lineSeparator());
+			if(line.contains(ART_NAV_START)) {
+				pageText.append(generateArtNav());
+				do {
+					line = pageBR.readLine();
+				} while(!line.contains(ART_NAV_END));
+				pageText.append(line+System.lineSeparator());
+			}
 			if(line.contains(HTML_ART_START)) {
 				if(pagePath.contains(HOME_PAGE)) {
 					pageText.append(generateJsImageArrays());
 				} else if (pagePath.contains(ART_PAGE)) {
 					pageText.append(generateArtTags());
 				}
-				
-				while(!line.contains(HTML_ART_END)) {
+				do {
 					line = pageBR.readLine();
-				}
+				} while(!line.contains(HTML_ART_END));
 				pageText.append(line+System.lineSeparator());
 			}
 		}
@@ -174,7 +185,18 @@ public class ArtUpdate {
 		return inputText;
 	}
 	
-	/*
+	private StringBuffer generateArtNav() {
+		StringBuffer inputText = new StringBuffer();
+		String li = "<li><a href=\"#LINK\" class=\"block_link\">TYPE</a></li>";
+
+		for (String type: artTypes) {
+			inputText.append(li.replace("LINK", type).replace("TYPE", type.replaceAll("[0-9]_", "")));
+			inputText.append(System.lineSeparator());
+		}	
+
+		return inputText;
+	}
+	/**
 	 * Creates <div>, <a>, and <img> HTML tags for all art images
 	 * 		and <h2> tages for art type titles
 	 * Image thumbs must be 400px x 400px
@@ -197,7 +219,7 @@ public class ArtUpdate {
 				inputText.append("<a name=\"");
 				inputText.append(currentType);
 				inputText.append("\"></a><h2>");
-				inputText.append(currentArt.type);
+				inputText.append(currentArt.type.replaceAll("[0-9]_", ""));
 				inputText.append("</h2>"+System.lineSeparator());
 			}
 			String path = currentArt.file.getPath();
@@ -242,12 +264,7 @@ public class ArtUpdate {
 		
 		private ArtFileInfo(String t, String n, String d, File f) throws NumberFormatException {
 			type = t;
-			switch(type) {
-				case "Painting": typeOrder = 0; break;
-				case "Sculpture": typeOrder = 1; break;
-				case "Drawing": typeOrder = 2; break;
-				case "Design": typeOrder = 3; break;
-			}
+			typeOrder = artTypes.indexOf(type);
 			name = n;
 			dateID = Integer.parseInt(d);
 			file = f;
