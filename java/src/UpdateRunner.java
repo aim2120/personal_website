@@ -34,7 +34,7 @@ public class UpdateRunner {
 			case 0: findreplace(); break;
 			case 1: artUpdate(); break;
 			case 2: copyrightUpdate(); break;
-			case 3: templateUpdate(); break;
+			case 3: templateUpdate(); artUpdate(); break;
 			}
 		} catch (InputMismatchException e) {
 			System.out.println("That input is not valid.");
