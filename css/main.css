@@ -173,10 +173,11 @@ header p {
     width: 80%;
     margin-left: -40%;
     margin-bottom: 2em;
+    padding-bottom: 2em;
     background-color: #FFF;
     text-align: center;
     overflow: hidden;
-    z-index: -100;
+    z-index: 0;
 }
 h2 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -238,6 +239,9 @@ h3 {
     font-style: italic;
     opacity: 0.7;
     filter: alpha(opacity=70);
+}
+.art_box.small span {
+    font-size: 80%;
 }
 .hidden {
     z-index: -10;
