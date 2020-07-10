@@ -116,8 +116,9 @@ nav a:visited {
     border-color: #771111;
     border-width: 2px 0 2px 2px;
     border-style: solid;
-    padding-right: 4em;
-    margin: 0.5em -1em 0.5em 0;
+    padding-right: 1em;
+    margin: 0.5em -0.5em 0.5em 0;
+    text-align: left;
 }
 header {
     height: 1277px;
