@@ -1,8 +1,7 @@
 var pastWidth = 0, maxWidth, width, timeOut;
 function dropDown(li) {
-	var top = li.children[0];
 	var drop = li.children[1];
-	maxWidth = top.clientWidth * drop.children.length;
+	maxWidth = drop.scrollWidth;
 	width = drop.clientWidth;
 	if(pastWidth < width || pastWidth == 0) { // sliding out
 		if(width < maxWidth) {
