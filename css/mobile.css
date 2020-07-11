@@ -1,59 +1,71 @@
 body {
-	font-size: 2em;
+    font-size: 2em;
 }
 #logo {
-	min-height: 55px;
-	min-width: 55px;
-	background-image: url("../images/logo_55.png");
+    min-height: 55px;
+    min-width: 55px;
+    background-image: url("../images/logo_55.png");
+}
+#navbutton {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    padding: 0.2em;
+    font-size: 250%;
+    background-color: #BCC6B1;
+    z-index: 3000;
+}
+#navbutton.inverse {
+    color: #BCC6B1;
+    background-color: #4F0017;
 }
 nav {
-	position: static;
-	height: auto;
+    opacity: 80%;
+}
+nav img {
+    display: none;
 }
 nav > ul {
-	float: none;
-	position: static;
-	width: 100%;
-	text-align: center;
+    float: none;
+    position: static;
+    width: 100%;
+    text-align: center;
 }
 nav > ul > li {
-	display: block;
-	border-width: 0 2px 2px 2px;
-	border-style: solid;
-	border-color: #4F3F1F;
+    display: block;
 }
 .slide a {
-	padding-left: 1em;
-	padding-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 #artnav {
-	display: none;
+    display: none;
 }
 header {
-	position: static;
-	font-size: 150%;
+    position: static;
+    font-size: 150%;
 }
 .unstuck {
-	position: static;
+    position: static;
 }
 .stuck {
-	position: static;
+    position: static;
 }
 #scrolling {
-	position: static;
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
+    position: static;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 .left, .right {
-	float: none;
-	width: 90%;
+    float: none;
+    width: 90%;
 }
 .divide {
-	display: block;
-	height: 1em;
-	width: 90%;
-	margin: 2em auto;
-	border-width: 2px 0;
+    display: block;
+    height: 1em;
+    width: 90%;
+    margin: 2em auto;
+    border-width: 2px 0;
 }
 

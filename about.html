@@ -16,6 +16,7 @@ About
     <script src="js/dropDown.js"></script>
     <!--<script src="js/overlay.js"></script>-->
     <script src="js/even.js"></script>
+    <script src="js/mobileMenu.js"></script>
 </head>
 <body id="top">
     <!--
@@ -24,9 +25,10 @@ About
         <img src="images/logo192.png" height="50px" width="50px"/>
     </a>
     -->
-   <nav>
+    <div id="navbutton" onclick="mobileMenuToggle()" style="display:none;">&#9776;</div>
+    <nav>
         <ul>
-            <li><a href="/"><img src="images/logo192.png" height="50px" width="50px" /></a></li>
+            <li><a href="/"><img src="images/logo192.png" height="50px" width="50px" />Home</a></li>
             <li><a href="art.html">Art</a></li>
             <li><a href="code.html">Code</a></li>
             <!--
@@ -42,7 +44,7 @@ About
                 </ul>
             </li>
         </ul>
-            </nav>
+    </nav>
     <header class="unstuck">
         <h1>
 Who I Am

@@ -65,8 +65,9 @@ nav ul {
     margin: 0;
     padding: 0;
 }
-nav ul li:first-child {
+nav ul img {
     vertical-align: middle;
+    padding: 0 0.5em;
 }
 nav li {
     display: inline-block;
