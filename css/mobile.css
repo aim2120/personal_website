@@ -10,7 +10,7 @@ body {
     position: fixed;
     top: 0px;
     right: 0px;
-    padding: 0.2em;
+    padding: 0.2em 0.5em;
     font-size: 250%;
     background-color: #BCC6B1;
     z-index: 3000;
@@ -20,7 +20,8 @@ body {
     background-color: #4F0017;
 }
 nav {
-    opacity: 80%;
+    position: static;
+    opacity: 90%;
 }
 nav img {
     display: none;

@@ -3,6 +3,7 @@ function mobileMenuInit() {
     button.style.display = "block";
     var menu = document.getElementsByTagName("nav")[0];
     menu.style.display = "none";
+    menu.style.position = "fixed";
 };
 
 function mobileMenuToggle() {
