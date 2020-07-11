@@ -55,7 +55,7 @@ header {
     position: static;
     width: 100%;
     margin: 0px;
-    padding: 0px;
+    padding: 0 0 2em 0;
 }
 .left, .right {
     float: none;
