@@ -3,12 +3,10 @@ function toggleTitle(elem) {
 	if(span.className == "visible") {
 		span.className = "hidden";
 		var img = elem.children[0];
-		img.style.opacity = "1.0";
-		img.style.filter = "alpha(opacity=100)"
+		img.style.opacity = "100%";
 	} else {
 		span.className = "visible";
 		var img = elem.children[0];
-		img.style.opacity = "0.8";
-		img.style.filter = "alpha(opacity=80)";
+		img.style.opacity = "80%";
 	}
 }

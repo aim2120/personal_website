@@ -9,10 +9,7 @@ function scrollInit() {
 	var scrolling = document.getElementById("scrolling");
 	scrolling.style.top = screenheight + "px";
 
-	scrollDiff = document.getElementsByTagName("header")[0].clientHeight - screenheight;
-	if (scrollDiff < 300) {
-		scrollDiff = 300; // ok if a little bg shows
-	}
+	scrollDiff = document.getElementsByTagName("header")[0].clientHeight - window.innerHeight;
 
 	stickyScroll();
 
@@ -33,7 +30,7 @@ function stickyScroll() {
 	} else {
 		var head = document.getElementsByTagName("header")[0];
 		head.className = "unstuck";
-		head.style.top = "40px";
+		head.style.top = "45px";
 	}
 };
 

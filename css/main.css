@@ -1,13 +1,15 @@
 /*
  * COLORS:
- * BG: #8C896C
- * HEADER: #CCD9BC
- * TEXT: #4F0017
- * LINK: #003F4F
- * LINK (VISIT): #00174F
+ * GRAY_BLUE: #B1BCC6
+ * GRAY_GREEN: #BCC6B1
+ * GRAY_RED: #C6B1BC
+ * BLUE: #00174F
+ * GREEN: #4F0017
+ * RED: #4F0017
+ * TURQOISE: #003F4F
  */
 body {
-    background-color: #8C896C;
+    background-color: #B1BCC6;
     font-family: Georgia, serif;
     color: #4F0017;
     font-size: 1.3em;
@@ -54,7 +56,7 @@ nav {
     left: 0px;
     min-height: 45px;
     width: 100%;
-    background-color: #CCD9BC;
+    background-color: #BCC6B1;
     font-family: Futura, "Gill San MT", sans-serif;
     font-size: 115%;
     z-index: 2000;
@@ -107,7 +109,6 @@ nav a:visited {
     margin: 0 auto;
     font-size: 120%;
     opacity: 0;
-    filter: alpha(opacity=0);
     z-index: 1000;
 }
 #artnav ul {
@@ -115,51 +116,54 @@ nav a:visited {
     padding: 0;
     list-style-type: none;
 }
-#artnav ul a {
-    border-color: #771111;
-    border-width: 2px 0 2px 2px;
-    border-style: solid;
+#artnav li {
+    background-color: #FFF;
+    border-radius: 10px;
+}
+#artnav a {
     padding-right: 1em;
     margin: 0.5em -0.5em 0.5em 0;
     text-align: left;
 }
 header {
-    height: 1277px;
+    height: 1225px;
     width: 100%;
-    background-color: #8C896C;
+    background-color: #B1BCC6;
     background-image: url("../images/banner.jpg");
     background-position: center top;
     background-repeat: no-repeat;
     font-size: 200%;
-    color: #4F0017;
     text-align: center;
     z-index: -200;
 }
 h1 {
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    font-family: Futura, "Gill San MT", sans-serif;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    !font-family: Futura, "Gill San MT", sans-serif;
     font-size: 300%;
 }
+header div {
+    margin: 2em auto;
+}
 #headlogo {
-    margin: auto;
     height: 200px;
     width: 200px;
-    background: #CCD9BC;
+    background-color: #BCC6B1;
     border-radius: 50%;
     padding: 20px;
-    opacity: 75%;
 }
-header p {
-    margin: 1em auto;
-    width: 80%;
+header span {
+    display: inline-block;
+    color: #BCC6B1;
+    background-color: #4F0017;
+    padding: 0.5em;
+    border-radius: 10px;
     font-style: italic;
 }
 .unstuck {
     position: absolute;
-    top: 40px;
+    top: 45px;
 }
 .stuck {
     position: fixed;
@@ -172,8 +176,7 @@ header p {
     height: auto;
     width: 80%;
     margin-left: -40%;
-    margin-bottom: 2em;
-    padding-bottom: 2em;
+    padding: 2em 0;
     background-color: #FFF;
     text-align: center;
     overflow: hidden;
@@ -186,7 +189,6 @@ h2 {
     text-align: center;
     padding-bottom: 0.5em;
     border-width: 0 0 2px 0;
-    border-color: #8C896C;
     border-style: solid;
 }
 h3 {
@@ -225,34 +227,33 @@ h3 {
 }
 .art_box {
     display: inline-block;
-    margin: 0 1em 1em 0;
+    margin: 0.5em;
     position: relative;
+    background-color: #BCC6B1;
+    text-decoration: none;
+    line-height: 0;
 }
-.art_box span {
+.art_box > div {
     display: block;
     position: absolute;
-    top: 10px;
-    width: 96%;
-    padding: 2%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+.art_box > div:hover {
+    opacity: 70%;
+}
+.art_box > div > div {
     background-color: #FFF;
     font-size: 115%;
     font-style: italic;
-    opacity: 0.7;
-    filter: alpha(opacity=70);
+    line-height: 1;
+    padding: 1em;
 }
-.art_box.small span {
+.art_box.small div {
     font-size: 80%;
-}
-.hidden {
-    z-index: -10;
-}
-.visible {
-    z-index: 10;
-}
-.art_box img {
-    opacity: 1.0;
-    filter: alpha(opacity=100);
-    z-index: 1;
 }
 .horiz_list {
     list-style-type: none;
@@ -275,13 +276,13 @@ h3 {
     text-align: center;
     padding: 0.5em;
     margin: 0;
-    background-color: #96A087;
+    background-color: #BCC6B1;
     font-style: italic;
     text-decoration: none;
     border-radius: 10px;
 }
 .block_link:hover {
-    background-color: #BCC6B1;
+    opacity: 80%;
 }
 .little_block {
     display: block;
@@ -301,5 +302,5 @@ footer {
     width: 100%;
     margin: 1em auto;
     font-size: 80%;
-    color: #8C896C;
+    opacity: 80%;
 }

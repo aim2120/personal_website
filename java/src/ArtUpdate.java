@@ -228,8 +228,7 @@ public class ArtUpdate {
 			String thumbPath = path.replace(currentType, "thumbs");
 			inputText.append("<a class=\"art_box\" href=\"");
 			inputText.append(path);
-			inputText.append("\" onmouseover=\"toggleTitle(this)\" ");
-			inputText.append("onmouseout=\"toggleTitle(this)\" >");
+			inputText.append("\">");
 			inputText.append("<img src=\"");
 			inputText.append(thumbPath);
 			inputText.append("\" alt=\"");
@@ -239,9 +238,9 @@ public class ArtUpdate {
 			inputText.append("\" width=\"");
 			inputText.append(THUMB_WIDTH);
 			inputText.append("\" />");
-			inputText.append("<span class=\"hidden\">");
+			inputText.append("<div><div>");
 			inputText.append(currentArt.name);
-			inputText.append("</span>");
+			inputText.append("</div></div>");
 			inputText.append("</a>"+System.lineSeparator());
 			lastType = currentType;
 		}
