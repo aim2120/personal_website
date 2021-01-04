@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class UpdateRunner {
 	
 	public static final String[] ART_PAGES = { // all pages that have art updates
-		"../index.html"
+		"../index_content.html"
 		,"../art_content.html"
 	};
 	public static final String ROOT_FOLDER = "..";

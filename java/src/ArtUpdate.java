@@ -47,14 +47,13 @@ public class ArtUpdate {
 		List<File> artTypeFolders = new ArrayList<>(); //list of art directories
 		
 		for(File folderItem: folderContents) { // adding correct directories
-			if(folderItem.isDirectory() && !folderItem.getName().equals("thumbs")) {
+		 	if(folderItem.isDirectory() && !folderItem.getName().equals("thumbs") && !folderItem.getName().equals("old")) {
 				artTypeFolders.add(folderItem);
 				artTypes.add(folderItem.getName());
 			}
 		}
 
 		Collections.sort(artTypes);
-
 		for(File currentFolder: artTypeFolders) { //goes through all art types
 			File[] imageFiles = currentFolder.listFiles();
 			for(File currentFile: imageFiles) { //goes through all image files
@@ -100,7 +99,7 @@ public class ArtUpdate {
 			}
 			if(line.contains(HTML_ART_START)) {
 				if(pagePath.contains(HOME_PAGE)) {
-					pageText.append(generateJsImageArrays());
+					pageText.append(generateHomeArtTags());
 				} else if (pagePath.contains(ART_PAGE)) {
 					pageText.append(generateArtTags());
 				}
@@ -120,68 +119,27 @@ public class ArtUpdate {
 		pageBW.close();
 	}
 	
-	/**
-	 * Creates arrays for use in js script to randomize images on homepage
-	 * @return inputText - the arrays containing all image info
-	 */
-	private StringBuffer generateJsImageArrays() {
+	private StringBuffer generateHomeArtTags() {
 		StringBuffer inputText = new StringBuffer();
+		String tag = "<a class=\"art_box small\" href=\"HREF\"><img src=\"SRC\" alt=\"ALT\" height=\"200\" width=\"200\" /><div><div>TITLE</div></div></a>";
 
-		inputText.append("var thumbSRC = [");
-		for(int i = 0; i < artList.size(); i++) {
-			if(i != 0) {
-				inputText.append(", ");
-			}
-			inputText.append("\"");
+		for(int i = 0; i < 4; i++) {
 			ArtFileInfo currentArt = artList.get(i);
-			String path = currentArt.file.getPath();
-			path = path.replace(currentArt.type, "thumbs");
-			path = path.replace("\\", "/");
-			path = path.substring(path.indexOf("images"));
-			inputText.append(path);
-			inputText.append("\"");
-		}
-		inputText.append("];"+System.lineSeparator());
-		
-		inputText.append("var imageHREF = [");
-		for(int i = 0; i < artList.size(); i++) {
-			if(i != 0) {
-				inputText.append(", ");
-			}
-			inputText.append("\"");
-			ArtFileInfo currentArt = artList.get(i);
+			String temptag = new String(tag);
 			String path = currentArt.file.getPath();
 			path = path.substring(path.indexOf("images"));
 			path = path.replace("\\", "/");
-			inputText.append(path);
-			inputText.append("\"");
+			String thumbPath = path.replace(currentArt.type, "thumbs");
+
+			temptag = temptag.replace("HREF", path);
+			temptag = temptag.replace("SRC", thumbPath);
+			temptag = temptag.replace("ALT", currentArt.type.replaceAll("[0-9]_", "")+" - "+currentArt.name);
+			temptag = temptag.replace("TITLE", currentArt.name);
+			inputText.append(temptag);
+			inputText.append(System.lineSeparator());
 		}
-		inputText.append("];"+System.lineSeparator());
-		
-		inputText.append("var imageALT = [");
-		for(int i = 0; i < artList.size(); i++) {
-			if(i != 0) {
-				inputText.append(", ");
-			}
-			inputText.append("\"");
-			ArtFileInfo currentArt = artList.get(i);
-			String altText = currentArt.name;
-			inputText.append(altText);
-			inputText.append("\"");
-		}
-		inputText.append("];"+System.lineSeparator());
-		
-		inputText.append("var id = [");
-		for(int i = 0; i < artList.size(); i++) {
-			if(i != 0) {
-				inputText.append(", ");
-			}
-			ArtFileInfo currentArt = artList.get(i);
-			int id = currentArt.dateID;
-			inputText.append(id);
-		}
-		inputText.append("];"+System.lineSeparator());
-		
+
+		System.out.println(inputText);
 		return inputText;
 	}
 	
@@ -232,7 +190,7 @@ public class ArtUpdate {
 			inputText.append("<img src=\"");
 			inputText.append(thumbPath);
 			inputText.append("\" alt=\"");
-			inputText.append(currentArt.type+" - "+currentArt.name);
+			inputText.append(currentArt.type.replaceAll("[0-9]_", "")+" - "+currentArt.name);
 			inputText.append("\" height=\"");
 			inputText.append(THUMB_HEIGHT);
 			inputText.append("\" width=\"");
