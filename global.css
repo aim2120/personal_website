@@ -59,6 +59,10 @@ a {
     margin-bottom: 2em;
 }
 
+.artwork a {
+    display: block;
+}
+
 .artwork img {
     width: 100%;
 }

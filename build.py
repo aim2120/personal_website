@@ -16,6 +16,12 @@ index_content_template = Template(index_content_template_string)
 # get artwork files
 artwork_files = []
 artwork_dir = os.getcwd() + '/images/artwork'
+optimized_dir = artwork_dir + '/optimized'
+
+# create optimized directory if it doesn't exist
+if not os.path.exists(optimized_dir):
+    os.makedirs(optimized_dir)
+
 for filename in os.listdir(artwork_dir):
     if filename.endswith('.jpg'):
         artwork_files.append(filename)
@@ -27,12 +33,27 @@ artworks_html_string = ''
 artwork_contexts = []
 for artwork_file in artwork_files:
     artwork_image = Image.open(artwork_dir + '/' + artwork_file)
+
+    # create optimized version
+    optimized_path = optimized_dir + '/' + artwork_file
+    if artwork_image.width > 1200:
+        ratio = 1200 / artwork_image.width
+        new_size = (1200, int(artwork_image.height * ratio))
+        optimized_image = artwork_image.resize(new_size, Image.Resampling.LANCZOS)
+        optimized_image.save(optimized_path, 'JPEG', quality=85, optimize=True)
+    else:
+        artwork_image.save(optimized_path, 'JPEG', quality=85, optimize=True)
+
+    # get optimized image for dimensions
+    optimized_image = Image.open(optimized_path)
+
     artwork_info = artwork_file.split('.')[0].split('_')
     artwork_dims = artwork_info[4].split('x')
     artwork_height = artwork_dims[0].split('in')[0]
     artwork_width = artwork_dims[1].split('in')[0]
     artwork_context = dict(
-        filename = artwork_file,
+        filename = 'optimized/' + artwork_file,
+        original_filename = artwork_file,
         title = ' '.join(artwork_info[2].split('-')),
         medium = ' '.join(artwork_info[3].split('-')),
         dimensions = artwork_info[4],
@@ -40,8 +61,8 @@ for artwork_file in artwork_files:
         width = artwork_width,
         year = artwork_info[5],
         file_size = {
-            'height': artwork_image.height,
-            'width': artwork_image.width
+            'height': optimized_image.height,
+            'width': optimized_image.width
         }
     )
     artwork_contexts.append(artwork_context)
