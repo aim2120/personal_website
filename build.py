@@ -59,28 +59,28 @@ index_content_context =  dict(
 )
 index_content_html_string = index_content_template.render(**index_content_context)
 
-# create index & contact contexts for top-level template
+# create index & art contexts for top-level template
 index_context = dict(
-    content = index_content_html_string,
-    title = "Art"
-)
-contact_context = dict(
     content = contact_content_html_string,
     title = "Contact"
+)
+art_context = dict(
+    content = index_content_html_string,
+    title = "Art"
 )
 
 # create the top-level html strings
 index_html_string = template.render(**index_context)
-contact_html_string = template.render(**contact_context)
+art_html_string = template.render(**art_context)
 
 print(index_html_string)
-print(contact_html_string)
+print(art_html_string)
 
 # write the top-level html strings to files
 index_output = open('index.html', 'w')
 index_output.write(index_html_string)
 index_output.close()
 
-contact_output = open('contact.html', 'w')
-contact_output.write(contact_html_string)
-contact_output.close()
+art_output = open('art.html', 'w')
+art_output.write(art_html_string)
+art_output.close()

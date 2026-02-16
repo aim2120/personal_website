@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <title>Annalise Mariottini - Art</title>
+    <link rel="stylesheet" href="global.css">
+    <script>
+        // make img elements the correct size dynamically so they hold the correct screen space while imgs loading
+        function resizeMedia() {
+            const mq = window.matchMedia( "(max-device-width: 812px)" );
+            const percent_width = mq.matches? 1.0 : 0.45;
+            const artworks_container = document.getElementById('artworks');
+            const artworks = document.getElementsByClassName('artwork');
+
+            for (let i = 0; i < artworks.length; i++) {
+                const artwork_img = artworks[i].getElementsByTagName('img')[0];
+                const original_width = artwork_img.getAttribute('original-width');
+                const original_height = artwork_img.getAttribute('original-height');
+
+                artwork_img.width = Math.floor(artworks_container.clientWidth * percent_width);
+
+                const multiplier = artwork_img.width / original_width;
+
+                artwork_img.height = Math.floor(original_height * multiplier);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', resizeMedia);
+        window.addEventListener('resize', resizeMedia);
+    </script>
+</head>
+
+<body>
+    <div id="top">
+        <div id="title">
+            <img src="images/logo.png" />
+            <h1>Annalise Mariottini</h1>
+            
+            
+            
+            <a href="/">
+                <h2 class="">
+                    Contact
+                </h2>
+            </a>
+            
+            
+            
+            <a href="/art">
+                <h2 class="on_page">
+                    Art
+                </h2>
+            </a>
+        </div>
+    </div>
+    <div id="content">
+    <div id="artworks">
+        <div class="artwork">
+    <img src="images/artwork/mariottini_annalise_drip_oil-on-canvas_60inx36in_2022.jpg" original-width="2974" original-height="4968" />
+    <div>
+        <em>drip</em> | oil on canvas | 60inx36in | 2022
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_pick_oil-on-canvas_24inx36in_2022.jpg" original-width="4504" original-height="3004" />
+    <div>
+        <em>pick</em> | oil on canvas | 24inx36in | 2022
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_tilt_oil-on-canvas_22inx28in_2022.jpg" original-width="4170" original-height="3278" />
+    <div>
+        <em>tilt</em> | oil on canvas | 22inx28in | 2022
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_akin_wood-wax-fabric-pewter_18inx6inx6in_2022.jpg" original-width="3648" original-height="4735" />
+    <div>
+        <em>akin</em> | wood wax fabric pewter | 18inx6inx6in | 2022
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_gnaw_oil-on-canvas_16inx16in_2022.jpg" original-width="3157" original-height="3153" />
+    <div>
+        <em>gnaw</em> | oil on canvas | 16inx16in | 2022
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_collaborate_oil-on-canvas_58inx40in_2021.jpg" original-width="3429" original-height="4790" />
+    <div>
+        <em>collaborate</em> | oil on canvas | 58inx40in | 2021
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_in-the-storage-room_oil-on-canvas_40inx40in_2021.jpg" original-width="3526" original-height="3527" />
+    <div>
+        <em>in the storage room</em> | oil on canvas | 40inx40in | 2021
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_incoming_oil-on-canvas_40inx32in_2021.jpg" original-width="2787" original-height="3469" />
+    <div>
+        <em>incoming</em> | oil on canvas | 40inx32in | 2021
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_dont-look_oil-on-canvas_40inx32in_2021.jpg" original-width="2780" original-height="3505" />
+    <div>
+        <em>dont look</em> | oil on canvas | 40inx32in | 2021
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_close_oil-on-canvas_40inx32in_2021.jpg" original-width="2834" original-height="3548" />
+    <div>
+        <em>close</em> | oil on canvas | 40inx32in | 2021
+    </div>
+</div>
+<div class="artwork">
+    <img src="images/artwork/mariottini_annalise_stasis_oil-on-canvas_32inx28in_2021.jpg" original-width="3172" original-height="3631" />
+    <div>
+        <em>stasis</em> | oil on canvas | 32inx28in | 2021
+    </div>
+</div>
+
+    </div>
+</div>
+</body>
+
+</html>

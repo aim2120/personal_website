@@ -33,24 +33,24 @@
         <div id="title">
             <img src="images/logo.png" />
             <h1>Annalise Mariottini</h1>
-            {% if title == "Art" %}
-            {% set artclass = 'on_page' %}
-            {% else %}
-            {% set artclass = '' %}
-            {% endif %}
-            <a href="/">
-                <h2 class="{{artclass}}">
-                    Art
-                </h2>
-            </a>
             {% if title == "Contact" %}
             {% set contactclass = 'on_page' %}
             {% else %}
             {% set contactclass = '' %}
             {% endif %}
-            <a href="/contact">
+            <a href="/">
                 <h2 class="{{contactclass}}">
                     Contact
+                </h2>
+            </a>
+            {% if title == "Art" %}
+            {% set artclass = 'on_page' %}
+            {% else %}
+            {% set artclass = '' %}
+            {% endif %}
+            <a href="/art">
+                <h2 class="{{artclass}}">
+                    Art
                 </h2>
             </a>
         </div>
