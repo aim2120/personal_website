@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  // Set this to today's date
+  "compatibility_date": "2026-11-27",
+  "assets": {
+    "directory": "./build"
+  },
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  }
+}
