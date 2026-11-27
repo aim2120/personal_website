@@ -13,14 +13,14 @@ BUILD_OPTIMIZED_DIR = os.path.join(BUILD_ARTWORK_DIR, "optimized")
 # get templates and components from files
 template_string = open("template.html", "r").read()
 artwork_template_string = open("artwork.html", "r").read()
-index_content_template_string = open("index_content.html", "r").read()
+art_content_template_string = open("art_content.html", "r").read()
 home_content_template_string = open("home_content.html", "r").read()
 about_content_html_string = open("about_content.html", "r").read()
 
 # create templates
 template = Template(template_string)
 artwork_template = Template(artwork_template_string)
-index_content_template = Template(index_content_template_string)
+art_content_template = Template(art_content_template_string)
 home_content_template = Template(home_content_template_string)
 
 # prepare build output directories
@@ -92,9 +92,9 @@ for artwork_context in artwork_contexts_sorted:
     artworks_html_string += "\n"
 
 
-# create index file using artworks html string
-index_content_context = dict(artwork_content=artworks_html_string)
-index_content_html_string = index_content_template.render(**index_content_context)
+# create art content using artworks html string
+art_content_context = dict(artwork_content=artworks_html_string)
+art_content_html_string = art_content_template.render(**art_content_context)
 
 # create home content using about html string
 home_content_html_string = home_content_template.render(
@@ -104,7 +104,7 @@ home_content_html_string = home_content_template.render(
 # create index & art contexts for top-level template
 index_context = dict(content=home_content_html_string, title="Home", scripts=[])
 art_context = dict(
-    content=index_content_html_string,
+    content=art_content_html_string,
     title="Art",
     scripts=["assets/resize_media.js"],
 )
