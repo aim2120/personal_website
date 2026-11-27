@@ -30,7 +30,6 @@ os.makedirs(BUILD_DIR)
 
 # copy static assets into build
 shutil.copytree(ASSETS_DIR, BUILD_ASSETS_DIR)
-shutil.copy(".htaccess", BUILD_DIR)
 os.makedirs(BUILD_OPTIMIZED_DIR, exist_ok=True)
 
 # get artwork files
