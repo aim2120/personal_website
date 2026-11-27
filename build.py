@@ -12,12 +12,14 @@ BUILD_OPTIMIZED_DIR = os.path.join(BUILD_ARTWORK_DIR, "optimized")
 template_string = open("template.html", "r").read()
 artwork_template_string = open("artwork.html", "r").read()
 index_content_template_string = open("index_content.html", "r").read()
-contact_content_html_string = open("contact_content.html", "r").read()
+home_content_template_string = open("home_content.html", "r").read()
+about_content_html_string = open("about_content.html", "r").read()
 
 # create templates
 template = Template(template_string)
 artwork_template = Template(artwork_template_string)
 index_content_template = Template(index_content_template_string)
+home_content_template = Template(home_content_template_string)
 
 # prepare build output directories
 if os.path.exists(BUILD_DIR):
@@ -99,8 +101,13 @@ for artwork_context in artwork_contexts_sorted:
 index_content_context = dict(artwork_content=artworks_html_string)
 index_content_html_string = index_content_template.render(**index_content_context)
 
+# create home content using about html string
+home_content_html_string = home_content_template.render(
+    about_content=about_content_html_string
+)
+
 # create index & art contexts for top-level template
-index_context = dict(content=contact_content_html_string, title="Contact")
+index_context = dict(content=home_content_html_string, title="Home")
 art_context = dict(content=index_content_html_string, title="Art")
 
 # create the top-level html strings

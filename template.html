@@ -33,14 +33,14 @@
         <div id="title">
             <img src="images/logo.png" />
             <h1>Annalise Morningstar</h1>
-            {% if title == "Contact" %}
-            {% set contactclass = 'on_page' %}
+            {% if title == "Home" %}
+            {% set homeclass = 'on_page' %}
             {% else %}
-            {% set contactclass = '' %}
+            {% set homeclass = '' %}
             {% endif %}
             <a href="/">
-                <h2 class="{{contactclass}}">
-                    Contact
+                <h2 class="{{homeclass}}">
+                    Home
                 </h2>
             </a>
             {% if title == "Art" %}
