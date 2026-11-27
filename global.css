@@ -16,6 +16,7 @@ html, body {
     display: flex;;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 0 2em;
 }
 
 #title > * {
@@ -28,7 +29,7 @@ html, body {
     vertical-align: middle;
 }
 
-h1, h2 {
+h1, h2, h3 {
     display: inline-block;
     margin: 0em;
 }
@@ -43,8 +44,20 @@ a {
     cursor: pointer;
 }
 
+p {
+    margin: 0;
+}
+
 #content {
-    padding: 2em;
+    padding: 1.5em 2em 2em;
+}
+
+#content > div:first-child {
+    margin-top: 0;
+}
+
+#content > div {
+    margin-top: 1.5em;
 }
 
 #artworks {
@@ -72,8 +85,17 @@ a {
     float: right;
 }
 
+.separator {
+    padding: 0 0.5em;
+}
+
+.contact-label {
+    font-weight: bold;
+    padding-right: 0.5em;
+}
+
 #contacts a {
-    padding: 1em;
+    padding: 0 0.5em;
 }
 
 @media (max-device-width: 812px) {
