@@ -4,8 +4,10 @@ from jinja2 import Template
 from PIL import Image
 
 BUILD_DIR = "build"
-SOURCE_ARTWORK_DIR = os.path.join("images", "artwork")
-BUILD_ARTWORK_DIR = os.path.join(BUILD_DIR, "images", "artwork")
+ASSETS_DIR = "assets"
+BUILD_ASSETS_DIR = os.path.join(BUILD_DIR, "assets")
+SOURCE_ARTWORK_DIR = os.path.join(ASSETS_DIR, "images", "artwork")
+BUILD_ARTWORK_DIR = os.path.join(BUILD_ASSETS_DIR, "images", "artwork")
 BUILD_OPTIMIZED_DIR = os.path.join(BUILD_ARTWORK_DIR, "optimized")
 
 # get templates and components from files
@@ -24,16 +26,12 @@ home_content_template = Template(home_content_template_string)
 # prepare build output directories
 if os.path.exists(BUILD_DIR):
     shutil.rmtree(BUILD_DIR)
-os.makedirs(BUILD_OPTIMIZED_DIR)
+os.makedirs(BUILD_DIR)
 
 # copy static assets into build
-shutil.copy("global.css", BUILD_DIR)
+shutil.copytree(ASSETS_DIR, BUILD_ASSETS_DIR)
 shutil.copy(".htaccess", BUILD_DIR)
-shutil.copy("favicon.ico", BUILD_DIR)
-shutil.copy(os.path.join("images", "logo.png"), os.path.join(BUILD_DIR, "images", "logo.png"))
-shutil.copy(
-    os.path.join("images", "favicon.png"), os.path.join(BUILD_DIR, "images", "favicon.png")
-)
+os.makedirs(BUILD_OPTIMIZED_DIR, exist_ok=True)
 
 # get artwork files
 artwork_files = []
@@ -49,9 +47,6 @@ artwork_contexts = []
 for artwork_file in artwork_files:
     source_path = os.path.join(SOURCE_ARTWORK_DIR, artwork_file)
     artwork_image = Image.open(source_path)
-
-    # copy original into build
-    shutil.copy(source_path, os.path.join(BUILD_ARTWORK_DIR, artwork_file))
 
     # create optimized version in build
     optimized_path = os.path.join(BUILD_OPTIMIZED_DIR, artwork_file)
@@ -107,8 +102,12 @@ home_content_html_string = home_content_template.render(
 )
 
 # create index & art contexts for top-level template
-index_context = dict(content=home_content_html_string, title="Home")
-art_context = dict(content=index_content_html_string, title="Art")
+index_context = dict(content=home_content_html_string, title="Home", scripts=[])
+art_context = dict(
+    content=index_content_html_string,
+    title="Art",
+    scripts=["assets/resize_media.js"],
+)
 
 # create the top-level html strings
 index_html_string = template.render(**index_context)
